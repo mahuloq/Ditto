@@ -17,4 +17,8 @@ export class MakeDittiComponent implements OnInit {
       description: new FormControl(null, Validators.required),
     });
   }
+
+  onSubmit() {
+    const newDitti = { ...this.dittiForm.value };
+  }
 }
