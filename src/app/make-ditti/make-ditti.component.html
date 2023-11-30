@@ -1,1 +1,37 @@
-<p>make-ditti works!</p>
+<div class="row overlay">
+  <div class="col-xs-12">
+    <form [formGroup]="dittiForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="name">Name your Ditti</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          formControlName="name"
+          class="form-control"
+        />
+      </div>
+      <div>
+        <label for="desciption">Description of Ditti</label>
+        <input
+          type="text"
+          id="desciption"
+          name="desciption"
+          formControlName="desciption"
+          class="form-control"
+        />
+      </div>
+      <div class="row">
+        <div class="col-cs-12">
+          <button
+            class="btn btn-success"
+            type="submit"
+            [disabled]="!dittiForm.valid"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
