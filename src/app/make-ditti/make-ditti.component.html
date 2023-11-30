@@ -1,8 +1,16 @@
 <div class="row overlay">
   <div class="col-xs-12">
+    <div class="header">Create a community</div>
     <form [formGroup]="dittiForm" (ngSubmit)="onSubmit()">
-      <div>
-        <label for="name">Name your Ditti</label>
+      <div class="formParts">
+        <label for="name"
+          >Name your community
+          <span class="labelDescipt"
+            ><br />
+            This name cannot be changed.</span
+          ></label
+        >
+        <br />
         <input
           type="text"
           id="name"
@@ -12,16 +20,63 @@
           placeholder="Name your Ditti!"
         />
       </div>
-      <div>
-        <label for="desciption">Description of Ditti</label>
-        <input
-          type="text"
-          id="desciption"
+      <div class="formParts">
+        <label for="desciption"
+          >Description of community
+          <span class="labelDescipt"
+            ><br />
+            New members gain a better understanding of your community through
+            this.
+          </span></label
+        >
+        <br />
+        <textarea
           name="desciption"
-          formControlName="desciption"
+          id="desciption"
+          cols="30"
+          rows="10"
+          formControlName="description"
           class="form-control"
           placeholder="Enter Description Here"
+        ></textarea>
+      </div>
+      <div class="formParts">
+        <label for="topics"
+          >Topics
+          <span class="labelDescipt"
+            ><br />
+            This will help users find your ditti</span
+          ></label
+        ><br />
+
+        <input type="text" formControlName="topics" />
+      </div>
+      <div>
+        <label for="access">Community Access</label> <br />
+        <input
+          type="radio"
+          id="Public"
+          name="restriction"
+          value="Public"
+          formControlName="restriction"
         />
+        <label for="Public">Public</label><br />
+        <input
+          type="radio"
+          id="Restricted"
+          name="restriction"
+          value="Restricted"
+          formControlName="restriction"
+        />
+        <label for="Restricted">Restricted</label><br />
+        <input
+          type="radio"
+          id="Private"
+          name="restriction"
+          value="Private"
+          formControlName="restriction"
+        />
+        <label for="Private">Private</label>
       </div>
       <div class="row">
         <div class="col-cs-12">

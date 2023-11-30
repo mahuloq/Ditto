@@ -15,10 +15,13 @@ export class MakeDittiComponent implements OnInit {
     this.dittiForm = new FormGroup({
       name: new FormControl(null, Validators.required),
       description: new FormControl(null, Validators.required),
+      topics: new FormControl(null, Validators.required),
+      restriction: new FormControl(null, Validators.required),
     });
   }
 
   onSubmit() {
     const newDitti = { ...this.dittiForm.value };
+    console.log(newDitti);
   }
 }

@@ -1,0 +1,11 @@
+.overlay {
+  width: 600px;
+
+  border: solid black 1px;
+  padding: 10px;
+  z-index: 3;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-40%, -40%);
+}
