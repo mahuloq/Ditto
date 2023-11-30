@@ -1,0 +1,9 @@
+export class Ditti {
+  constructor(
+    public name: string,
+    public description: string,
+    public topics: [string],
+    public restrictions: string,
+    public adultContent: boolean
+  ) {}
+}
