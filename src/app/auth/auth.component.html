@@ -15,7 +15,7 @@
               class="card text-black"
               style="
                 border-radius: 25px;
-                background-color: mintcream;
+                background-color: rgb(85, 123, 103);
                 border: 1px solid black;
               "
             >
@@ -143,6 +143,7 @@
                           value=""
                           id="terms"
                           formControlName="terms"
+                          (ngModel)="true" required
                         />
                         <span
                           style="color: red"
@@ -168,7 +169,7 @@
                           >Please complete registration!</span
                         >
                         <button
-                          (invalid)="(!signupForm)"
+                          [disabled]="!signupForm.valid"
                           type="submit"
                           class="btn btn-primary btn-lg"
                         >
