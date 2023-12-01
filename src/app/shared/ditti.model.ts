@@ -7,6 +7,6 @@ export class Ditti {
     public topics: [string],
     public restrictions: string,
     public adultContent: boolean,
-    public posts?: Post
+    public posts?: Post[]
   ) {}
 }
