@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+// import { DataStorageService } from 'app/shared/data-storage.service';
 import { Ditti } from 'app/shared/ditti.model';
 
 @Component({
@@ -12,7 +12,8 @@ import { Ditti } from 'app/shared/ditti.model';
 export class MakeDittiComponent implements OnInit {
   dittiForm: FormGroup;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) // private dataService: DataStorageService
+  {}
 
   ngOnInit(): void {
     this.dittiForm = new FormGroup({
@@ -25,12 +26,12 @@ export class MakeDittiComponent implements OnInit {
   }
 
   onSubmit() {
+    var test = this.dittiForm.value.topics;
+    test = test.split(/[ ,]+/);
+    test = test.filter((item) => item);
     const newDitti: Ditti = { ...this.dittiForm.value };
-    var tempTopics = { ...newDitti.topics };
-    var newTemp = tempTopics;
-    console.log(tempTopics);
-    console.log(newTemp);
-    console.log(newDitti);
+    newDitti.topics = test;
+    // this.dataService.saveDitti(newDitti);
     // this.router.navigate(['home']);
   }
 }
