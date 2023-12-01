@@ -25,11 +25,12 @@ export class MakeDittiComponent implements OnInit {
   }
 
   onSubmit() {
+    const test = this.dittiForm.value;
     const newDitti: Ditti = { ...this.dittiForm.value };
     var tempTopics = { ...newDitti.topics };
-    var newTemp = tempTopics;
+    // temp = newTemp.split(/[ ,]+/)
     console.log(tempTopics);
-    console.log(newTemp);
+    console.log(test);
     console.log(newDitti);
     // this.router.navigate(['home']);
   }

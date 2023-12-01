@@ -1,4 +1,4 @@
-<div class="page">
+<div class="box">
   <div class="sidebar">
     <img
       class="sidebar"
@@ -6,126 +6,129 @@
       alt="whimsical"
     />
   </div>
-  <div class="row overlay">
-    <div class="col-xs-12">
-      <h1 class="header">Create a community</h1>
-      <hr />
-      <form [formGroup]="dittiForm" (ngSubmit)="onSubmit()">
-        <div class="formParts">
-          <label class="subHeader" for="name"
-            >Name your community
-            <span class="labelDescipt"
-              ><br />
-              This name cannot be changed.</span
-            ></label
-          >
-          <br />
-          <input
-            type="text"
-            id="name"
-            name="name"
-            formControlName="name"
-            class="form-control"
-            placeholder="Name your Ditti!"
-          />
-        </div>
-        <div class="formParts">
-          <label class="subHeader" for="desciption"
-            >Description of community
-            <span class="labelDescipt"
-              ><br />
-              New members gain a better understanding of your community through
-              this.
-            </span></label
-          >
-          <br />
-          <textarea
-            name="desciption"
-            id="desciption"
-            cols="30"
-            rows="10"
-            formControlName="description"
-            class="form-control"
-            placeholder="Enter Description Here"
-          ></textarea>
-        </div>
-        <div class="formParts">
-          <label class="subHeader" for="topics"
-            >Topics
-            <span class="labelDescipt"
-              ><br />
-              This will help users find your ditti</span
-            ></label
-          ><br />
-
-          <input type="text" formControlName="topics" />
-        </div>
-        <div>
-          <label for="access" class="subHeader">Community Access</label> <br />
-          <input
-            type="radio"
-            id="Public"
-            name="restriction"
-            value="Public"
-            formControlName="restriction"
-          />
-          <label for="Public" class="subHeader"
-            >Public
-            <span class="labelDescipt">
-              Anyone post, view, or comment on this community</span
-            ></label
-          ><br />
-          <input
-            type="radio"
-            id="Restricted"
-            name="restriction"
-            value="Restricted"
-            formControlName="restriction"
-          />
-          <label for="Restricted" class="subHeader"
-            >Restricted
-            <span class="labelDescipt">
-              Anyone can view the community, but only approved users can
-              post</span
-            ></label
-          ><br />
-          <input
-            type="radio"
-            id="Private"
-            name="restriction"
-            value="Private"
-            formControlName="restriction"
-          />
-          <label for="Private" class="subHeader"
-            >Private
-            <span class="labelDescipt">
-              Only approved users can view and post to the community</span
-            ></label
-          >
-        </div>
-        <div>
-          <label for="adult" class="subHeader">Adult Content</label>
-          <br />
-          <input
-            type="checkbox"
-            id="adult"
-            value="adult"
-            name="adultContent"
-            formControlName="adultContent"
-          /><span class="nsfw"> 18+ year old community</span>
-        </div>
-        <div class="row">
-          <div class="col-cs-12">
-            <button
-              class="btn btn-success"
-              type="submit"
-              [disabled]="!dittiForm.valid"
+  <div class="page">
+    <div class="overlay">
+      <div>
+        <h1 class="header">Create a community</h1>
+        <hr />
+        <form [formGroup]="dittiForm" (ngSubmit)="onSubmit()">
+          <div class="formParts">
+            <label class="subHeader" for="name"
+              >Name your community
+              <span class="labelDescipt"
+                ><br />
+                This name cannot be changed.</span
+              ></label
             >
-              Submit
-            </button>
+            <br />
+            <input
+              type="text"
+              id="name"
+              name="name"
+              formControlName="name"
+              class="form-control"
+              placeholder="Name your Ditti!"
+            />
           </div>
-        </div>
-      </form>
+          <div class="formParts">
+            <label class="subHeader" for="desciption"
+              >Description of community
+              <span class="labelDescipt"
+                ><br />
+                New members gain a better understanding of your community
+                through this.
+              </span></label
+            >
+            <br />
+            <textarea
+              name="desciption"
+              id="desciption"
+              cols="30"
+              rows="10"
+              formControlName="description"
+              class="form-control"
+              placeholder="Enter Description Here"
+            ></textarea>
+          </div>
+          <div class="formParts">
+            <label class="subHeader" for="topics"
+              >Topics
+              <span class="labelDescipt"
+                ><br />
+                This will help users find your ditti</span
+              ></label
+            ><br />
+
+            <input type="text" formControlName="topics" />
+          </div>
+          <div>
+            <label for="access" class="subHeader">Community Access</label>
+            <br />
+            <input
+              type="radio"
+              id="Public"
+              name="restriction"
+              value="Public"
+              formControlName="restriction"
+            />
+            <label for="Public" class="subHeader"
+              >Public
+              <span class="labelDescipt">
+                Anyone post, view, or comment on this community</span
+              ></label
+            ><br />
+            <input
+              type="radio"
+              id="Restricted"
+              name="restriction"
+              value="Restricted"
+              formControlName="restriction"
+            />
+            <label for="Restricted" class="subHeader"
+              >Restricted
+              <span class="labelDescipt">
+                Anyone can view the community, but only approved users can
+                post</span
+              ></label
+            ><br />
+            <input
+              type="radio"
+              id="Private"
+              name="restriction"
+              value="Private"
+              formControlName="restriction"
+            />
+            <label for="Private" class="subHeader"
+              >Private
+              <span class="labelDescipt">
+                Only approved users can view and post to the community</span
+              ></label
+            >
+          </div>
+          <div>
+            <label for="adult" class="subHeader">Adult Content</label>
+            <br />
+            <input
+              type="checkbox"
+              id="adult"
+              value="adult"
+              name="adultContent"
+              formControlName="adultContent"
+            /><span class="nsfw"> 18+ year old community</span>
+          </div>
+          <div class="row">
+            <div class="col-cs-12">
+              <button
+                class="btn btn-success"
+                type="submit"
+                [disabled]="!dittiForm.valid"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
