@@ -12,11 +12,11 @@ export class AuthComponent implements OnInit {
 
 ngOnInit(): void {
   this.signupForm= new FormGroup({
-    'name':new FormControl('John Smith'),
-    'email':new FormControl(null),
-    'password': new FormControl(null),
-    'confirmPassword':new FormControl(null),
-    'terms':new FormControl(null)
+    'name':new FormControl('',Validators.required),
+    'email':new FormControl('',[Validators.required,Validators.email]),
+    'password': new FormControl('',[Validators.required]),
+    'confirmPassword':new FormControl('',[Validators.required]),
+    'terms':new FormControl('',Validators.required)
   });
 }
 
@@ -30,6 +30,6 @@ ngOnInit(): void {
   //   });
   // }
 onSignup(signupForm:FormGroup) {
-console.log(signupForm.value)
+console.log(this.signupForm.value)
 }
 }
