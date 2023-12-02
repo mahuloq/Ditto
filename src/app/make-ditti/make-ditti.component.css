@@ -4,14 +4,16 @@
 }
 
 .overlay {
-  width: 600px;
+  margin: auto;
+
+  width: 650px;
   border: solid #d2d4ba 1px;
   padding: 10px;
   z-index: 3;
-  position: absolute;
-  top: 50%;
+  /* position: absolute; */
+  /* top: 50%;
   left: 50%;
-  transform: translate(-40%, -40%);
+  transform: translate(-40%, -40%); */
 }
 
 .labelDescipt {
@@ -31,13 +33,6 @@
   color: #c9dce8;
 }
 
-.page {
-  background-color: #1b1a1d;
-
-  height: 100vh;
-  width: 100vw;
-}
-
 .nsfw {
   color: #d2d4ba;
 }
@@ -47,5 +42,11 @@
 }
 
 .sidebar {
+  position: fixed;
   height: 100vh;
+}
+
+.page {
+  background-color: #1b1a1d;
+  min-height: 100vh;
 }
