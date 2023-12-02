@@ -12,6 +12,7 @@ import { Ditti } from 'app/shared/ditti.model';
 })
 export class MakeDittiComponent implements OnInit {
   dittiForm: FormGroup;
+  dittisLoaded = false;
 
   constructor(
     private router: Router,
@@ -20,6 +21,10 @@ export class MakeDittiComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.dittiService.dittisLoadedChanged.subscribe(
+      (data) => (this.dittisLoaded = data)
+    );
+
     this.dittiForm = new FormGroup({
       name: new FormControl(null, Validators.required),
       description: new FormControl(null, Validators.required),
@@ -30,13 +35,31 @@ export class MakeDittiComponent implements OnInit {
   }
 
   onSubmit() {
-    var topics = this.dittiForm.value.topics;
-    topics = topics.split(/[ ,]+/);
-    topics = topics.filter((item) => item);
-    const newDitti: Ditti = { ...this.dittiForm.value };
-    newDitti.topics = topics;
-    this.dittiService.saveDitti(newDitti);
-    this.dataService.saveDitti(newDitti);
+    if (this.dittisLoaded == false) {
+      this.dataService.getDittis();
+      this.dittisLoaded = true;
+      console.log('Skipped Get');
+
+      setTimeout(() => {
+        var topics = this.dittiForm.value.topics;
+        topics = topics.split(/[ ,]+/);
+        topics = topics.filter((item) => item);
+        const newDitti: Ditti = { ...this.dittiForm.value };
+        newDitti.topics = topics;
+        this.dittiService.saveDitti(newDitti);
+        this.dataService.saveDitti();
+        this.dittiForm.reset();
+      }, 1000);
+    } else {
+      var topics = this.dittiForm.value.topics;
+      topics = topics.split(/[ ,]+/);
+      topics = topics.filter((item) => item);
+      const newDitti: Ditti = { ...this.dittiForm.value };
+      newDitti.topics = topics;
+      this.dittiService.saveDitti(newDitti);
+      this.dataService.saveDitti();
+      this.dittiForm.reset();
+    }
 
     // this.router.navigate(['home']);
   }
