@@ -10,12 +10,12 @@ import { DittiService } from './ditti-service.service';
 export class DataStorageService {
   constructor(private http: HttpClient, private dittiService: DittiService) {}
 
-  saveDitti(data: Ditti) {
-    var title = data.name;
+  saveDitti() {
+    const test = this.dittiService.getDittisLocal();
 
-    var url = `https://ditto-group-default-rtdb.firebaseio.com/dittis/${title}.json`;
-
-    this.http.put(url, data).subscribe((response) => {
+    var url = `https://ditto-group-default-rtdb.firebaseio.com/dittis.json`;
+    // `https://ditto-group-default-rtdb.firebaseio.com/dittis.json`
+    this.http.put(url, test).subscribe((response) => {
       console.log(response);
     });
   }
