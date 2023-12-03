@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {  FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-auth',
@@ -14,8 +14,8 @@ ngOnInit(): void {
   this.signupForm= new FormGroup({
     'name':new FormControl('',Validators.required),
     'email':new FormControl('',[Validators.required,Validators.email]),
-    'password': new FormControl('',[Validators.required]),
-    'confirmPassword':new FormControl('',[Validators.required]),
+    'password': new FormControl('',[Validators.required,Validators.minLength(6)]),
+    'confirmPassword':new FormControl('',[Validators.required,Validators.minLength(6)]),
     'terms':new FormControl('',Validators.required)
   });
 }
@@ -30,6 +30,7 @@ ngOnInit(): void {
   //   });
   // }
 onSignup(signupForm:FormGroup) {
-console.log(this.signupForm.value)
+console.log(this.signupForm.value);
+signupForm.reset();
 }
 }
