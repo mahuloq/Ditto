@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MakeDittiComponent } from './make-ditti.component';
+import { HeaderComponent } from './header.component';
 
-describe('MakeDittiComponent', () => {
-  let component: MakeDittiComponent;
-  let fixture: ComponentFixture<MakeDittiComponent>;
+describe('HeaderComponent', () => {
+  let component: HeaderComponent;
+  let fixture: ComponentFixture<HeaderComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MakeDittiComponent]
+      declarations: [HeaderComponent]
     });
-    fixture = TestBed.createComponent(MakeDittiComponent);
+    fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
