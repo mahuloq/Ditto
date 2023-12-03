@@ -16,6 +16,8 @@ export class LoginFormComponent implements OnInit {
     });
   }
   onLogin(loginForm: FormGroup) {
-    console.log(this.loginForm.value);
-  }
+    console.log(loginForm.value)
+    loginForm.reset();
 }
+  }
+
