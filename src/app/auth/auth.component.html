@@ -25,8 +25,8 @@
                     <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
                       Sign up
                     </p>
-<div *ngIf="isLoading">
-  
+<div *ngIf="isLoading" style="float: right;">
+  <app-loading-spinner></app-loading-spinner>
 </div>
                     <form
                     *ngIf="!isLoading"
