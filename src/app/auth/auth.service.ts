@@ -47,7 +47,7 @@ export class AuthService {
       this.loginEndPoint+this.apiKey, {
         email:email,
         password:password,
-        returnSercureToken:true
+        returnSecureToken:true
       }
     )
   }
