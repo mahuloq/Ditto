@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import {  FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'app/auth/auth.service';
 
 @Component({
-  selector: 'app-login-form',
-  templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.css'],
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class LoginFormComponent implements OnInit {
+export class LoginComponent {
   loginForm: FormGroup;
   isLoading=false;
 
@@ -19,19 +19,13 @@ export class LoginFormComponent implements OnInit {
       password: new FormControl('', [Validators.required]),
     });
   }
-
-
-
-
   onLogin(loginForm: FormGroup) {
     if (!loginForm.valid) {
       return;
     }
   const email=loginForm.value.email;
   const password=loginForm.value.password;
-
   this.isLoading=true;
-
   this.authService.login(email,password).subscribe(resData=> {
     console.log(resData);
     this.isLoading=false;
