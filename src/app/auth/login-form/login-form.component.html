@@ -26,7 +26,11 @@
                       Login
                     </p>
 
+                    <div *ngIf="isLoading" style="float: right;">
+                      <app-loading-spinner></app-loading-spinner>
+                    </div>
                     <form
+                    *ngIf="!isLoading"
                       [formGroup]="loginForm"
                       class="mx-1 mx-md-4"
                       (ngSubmit)="onLogin(loginForm)"
