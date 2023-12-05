@@ -12,6 +12,7 @@ import { passwordMatchValidator } from 'app/auth/confirm-password.validator';
 export class SignupComponent {
   signupForm: FormGroup;
   isLoading = false;
+  error:string= null;
 
 
   constructor(private authService: AuthService) {}
@@ -50,6 +51,7 @@ export class SignupComponent {
       },
       (error) => {
         console.log(error);
+        this.error
         this.isLoading = false;
       }
     );

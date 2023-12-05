@@ -38,7 +38,7 @@ export class AuthService {
 
 
 
-  user = new Subject<User>()
+  // user = new Subject<User>()
 
 
 
