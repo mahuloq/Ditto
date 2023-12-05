@@ -102,6 +102,7 @@
                             class="form-control"
                             formControlName="confirmPassword"
                           />
+                          <!-- <span style="color: red;" *ngIf="signupForm.errors?.['passwordMatchError']">Passwords need to match!</span> -->
                           <span
                             style="color: red"
                             *ngIf="
@@ -109,7 +110,7 @@
                               signupForm.get('confirmPassword')?.touched
                             "
                             class="help-block"
-                            >You must retype your password!</span
+                            >Passwords Must Match!</span
                           >
                           <label class="form-label" for="confirmPassword"
                             >Repeat your password</label

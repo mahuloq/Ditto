@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'app/auth/auth.service';
+import { passwordMatchValidator } from 'app/auth/confirm-password.validator';
+
 
 @Component({
   selector: 'app-signup',
@@ -11,9 +13,11 @@ export class SignupComponent {
   signupForm: FormGroup;
   isLoading = false;
 
+
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
+
     this.signupForm = new FormGroup({
       name: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -21,15 +25,15 @@ export class SignupComponent {
         Validators.required,
         Validators.minLength(6),
       ]),
-      confirmPassword: new FormControl('', [
-        Validators.required,
-        Validators.minLength(6),
-      ]),
+      confirmPassword: new FormControl('',Validators.required),
       terms: new FormControl('', Validators.required),
+    },{
+      validators : passwordMatchValidator('password','confirmPassword')
     });
+
+
   }
 
-  
   onSignup(signupForm: FormGroup) {
     if (!signupForm.valid) {
       return;
