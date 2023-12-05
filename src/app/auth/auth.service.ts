@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+import { User } from './user.model';
 
 interface AuthResponseData {
   kind:string,
@@ -33,6 +35,13 @@ export class AuthService {
   apiKey = 'AIzaSyDIVVW0j9RT0xUJoZJkHtJlYq2nyjF7gp4';
   signupEndPoint ='https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=';
   loginEndPoint='https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=';
+
+
+
+  user = new Subject<User>()
+
+
+
 
   signup(email: string, password: string) {
     return this.http.post<AuthResponseData>(
