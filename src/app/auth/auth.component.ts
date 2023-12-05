@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {  FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -8,7 +9,9 @@ import {  FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AuthComponent implements OnInit {
   signupForm: FormGroup;
+  isLoading=false;
 
+  constructor(private authService: AuthService) {}
 
 ngOnInit(): void {
   this.signupForm= new FormGroup({
@@ -30,7 +33,23 @@ ngOnInit(): void {
   //   });
   // }
 onSignup(signupForm:FormGroup) {
-console.log(this.signupForm.value);
+  if (!signupForm.valid) {
+    return;
+  }
+const email=signupForm.value.email;
+const password=signupForm.value.password;
+
+this.isLoading=true;
+
+this.authService.signup(email,password).subscribe(resData=> {
+  console.log(resData);
+  this.isLoading=false;
+},
+error => {
+  console.log(error);
+  this.isLoading=false
+}
+);
 signupForm.reset();
 }
 }

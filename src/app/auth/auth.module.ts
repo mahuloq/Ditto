@@ -4,10 +4,13 @@ import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './auth.component';
 import { SharedModule } from '../shared/shared.module';
-// import { LoginFormComponent } from './login-form/login-form.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
+
+
 
 @NgModule({
-  declarations: [AuthComponent],
+  declarations: [AuthComponent, LoginComponent, SignupComponent],
   imports: [CommonModule, AuthRoutingModule, SharedModule],
 
 })
