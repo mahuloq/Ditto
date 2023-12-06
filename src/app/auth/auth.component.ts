@@ -32,24 +32,27 @@ ngOnInit(): void {
   //     terms: [false, Validators.requiredTrue]
   //   });
   // }
-onSignup(signupForm:FormGroup) {
-  if (!signupForm.valid) {
-    return;
+  onSignup(signupForm: FormGroup) {
+    if (!signupForm.valid) {
+      return;
+    }
+    const email = signupForm.value.email;
+    const password = signupForm.value.password;
+
+    this.isLoading = true;
+
+    this.authService.signup(email, password).subscribe(
+      (resData) => {
+        console.log(resData);
+        this.isLoading = false;
+      },
+      errorRes => {
+        console.log(errorRes);
+
+        // this.error='An error occurred!';
+        this.isLoading = false;
+      }
+    );
+    signupForm.reset();
   }
-const email=signupForm.value.email;
-const password=signupForm.value.password;
-
-this.isLoading=true;
-
-this.authService.signup(email,password).subscribe(resData=> {
-  console.log(resData);
-  this.isLoading=false;
-},
-error => {
-  console.log(error);
-  this.isLoading=false
-}
-);
-signupForm.reset();
-}
 }

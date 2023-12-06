@@ -49,9 +49,11 @@ export class SignupComponent {
         console.log(resData);
         this.isLoading = false;
       },
-      (error) => {
-        console.log(error);
-        this.error
+      errorMessage => {
+        console.log(errorMessage);
+        this.error=errorMessage;
+
+        // this.error='An error occurred!';
         this.isLoading = false;
       }
     );

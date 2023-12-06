@@ -4,6 +4,9 @@
       <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
         Login
       </p>
+      <div class="alert alert-danger" *ngIf="error" style="text-align: center;">
+        <p>{{error}}</p>
+      </div>
 
       <div *ngIf="isLoading" style="text-align: center">
         <app-loading-spinner></app-loading-spinner>
