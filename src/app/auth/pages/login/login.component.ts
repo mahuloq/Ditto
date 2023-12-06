@@ -10,6 +10,7 @@ import { AuthService } from 'app/auth/auth.service';
 export class LoginComponent {
   loginForm: FormGroup;
   isLoading=false;
+  error:string= null;
 
   constructor(private authService: AuthService) {}
 
@@ -32,6 +33,7 @@ export class LoginComponent {
   },
   error => {
     console.log(error);
+    this.error='An error has occurred!'
     this.isLoading=false
   });
     loginForm.reset();
