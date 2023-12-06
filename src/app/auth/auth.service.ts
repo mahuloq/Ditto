@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, throwError } from 'rxjs';
+import { Router } from '@angular/router';
 
 interface AuthResponseData {
   kind: string;
@@ -55,6 +56,20 @@ export class AuthService {
       email: email,
       password: password,
       returnSecureToken: true,
-    });
+    }).pipe(
+      catchError((errorRes) => {
+        let errorMessage = 'An Unknown Error has Occurred!';
+        if (!errorRes.error || !errorRes.error.error) {
+          return throwError(errorMessage);
+        }
+        switch (errorRes.error.error.message) {
+          case 'INVALID_LOGIN_CREDENTIALS':
+            errorMessage = 'Invalid Login';
+        }
+        return throwError(errorMessage);
+      })
+
+    );
+    ;
   }
 }

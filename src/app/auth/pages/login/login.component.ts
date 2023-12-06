@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'app/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -30,12 +31,16 @@ export class LoginComponent {
   this.authService.login(email,password).subscribe(resData=> {
     console.log(resData);
     this.isLoading=false;
+
   },
-  error => {
-    console.log(error);
-    this.error='An error has occurred!'
-    this.isLoading=false
-  });
+  errorMessage => {
+    console.log(errorMessage);
+    this.error=errorMessage;
+
+    // this.error='An error occurred!';
+    this.isLoading = false;
+  }
+);
     loginForm.reset();
 }
   }
