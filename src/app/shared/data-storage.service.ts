@@ -5,9 +5,14 @@ import { Injectable } from '@angular/core';
 import { Ditti } from './ditti.model';
 import { map, tap, take, exhaustMap } from 'rxjs/operators';
 import { DittiService } from './ditti-service.service';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
+
 export class DataStorageService {
+  // private dittiSubject = new BehaviorSubject<Ditti[]>();
+  // ditti$: Observable<Ditti[]>=this.dittiSubject.asObservable();
+
   constructor(private http: HttpClient, private dittiService: DittiService) {}
 
   saveDitti() {
