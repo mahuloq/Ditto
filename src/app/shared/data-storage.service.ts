@@ -21,6 +21,7 @@ export class DataStorageService {
   }
 
   getDittis() {
+    console.log('Get Dittis Data Service Ran');
     return this.http
       .get<Ditti[]>(
         `https://ditto-group-default-rtdb.firebaseio.com/dittis.json`
