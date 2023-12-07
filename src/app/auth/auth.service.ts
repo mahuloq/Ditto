@@ -95,18 +95,7 @@ export class AuthService {
           );
         })
 
-        // tap((resData) => {
-        //   const expirationDate = new Date(
-        //     new Date().getTime() + +resData.expiresIn * 1000
-        //   );
-        //   const user = new User(
-        //     resData.email,
-        //     resData.localId,
-        //     resData.idToken,
-        //     expirationDate
-        //   );
-        //   this.user.next(user);
-        // })
+   
       );
   }
   private handleAuthentication(
