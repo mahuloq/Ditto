@@ -30,18 +30,18 @@ export class DataStorageService {
       .get<Ditti[]>(
         `https://ditto-group-default-rtdb.firebaseio.com/dittis.json`
       )
-      .pipe(
-        map((dittis) => {
-          return dittis.map((ditti) => {
-            return {
-              ...ditti,
-            };
-          });
-        }),
-        tap((dittis) => {
-          this.dittiService.setDittis(dittis);
-        })
-      )
-      .subscribe();
+      // .pipe(
+      //   map((dittis) => {
+      //     return dittis.map((ditti) => {
+      //       return {
+      //         ...ditti,
+      //       };
+      //     });
+      //   }),
+      //   tap((dittis) => {
+      //     this.dittiService.setDittis(dittis);
+      //   })
+      // )
+      // .subscribe();
   }
 }
