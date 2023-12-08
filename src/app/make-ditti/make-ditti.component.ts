@@ -68,21 +68,18 @@ export class MakeDittiComponent implements OnInit {
 
   nameCheck() {
     console.log('NameCheck');
-    if ((this.test = true)) {
-      var dittis = this.dittiService.getDittisLocal();
 
-      setTimeout(() => {});
-      var length = dittis.length;
+    var dittis = this.dittiService.getDittisLocal();
 
-      for (let i = 0; i < length; i++) {
-        if (
-          this.dittiForm.value.name.toLowerCase() === dittis[i].lowercaseName
-        ) {
-          return true;
-        } else {
-          console.log(dittis[i].lowercaseName);
-          console.log(this.dittiForm.value.name.toLowerCase);
-        }
+    setTimeout(() => {});
+    var length = dittis.length;
+
+    for (let i = 0; i < length; i++) {
+      if (this.dittiForm.value.name.toLowerCase() === dittis[i].lowercaseName) {
+        return true;
+      } else {
+        console.log(dittis[i].lowercaseName);
+        console.log(this.dittiForm.value.name.toLowerCase());
       }
     }
   }
