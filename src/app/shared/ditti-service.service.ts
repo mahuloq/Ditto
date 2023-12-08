@@ -39,10 +39,14 @@ export class DittiService {
   }
 
   dittiNameGetter() {
-    const listOfDittis = this.allDittis;
-    for (let i = 0; i < listOfDittis.length; i++) {
-      this.dittiNames[i] = listOfDittis[i].name;
+    for (let i = 0; i < this.allDittis.length; i++) {
+      this.dittiNames[i] = this.allDittis[i].name;
     }
     console.log(this.dittiNames);
+    return this.dittiNames;
+  }
+
+  dittiInfo(i) {
+    return this.allDittis[i];
   }
 }
