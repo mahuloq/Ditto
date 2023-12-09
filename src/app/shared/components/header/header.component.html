@@ -17,80 +17,22 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="#">Ditti 1</a>
+
+        <ul class="list-group" style="display: inline-block">
+          <li class="list-group-item" *ngFor="let ditti of dittis">
+            <a class="nav-link">{{ ditti.name }}</a>
+          </li>
+        </ul>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Sign-Up</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Ditti 2</a>
+          <a class="nav-link active" aria-current="page" href="#">Login</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ditti 3</a>
+
+        <li>
+          <a class="nav-link active" aria-current="page" href="#">Logout</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ditti 4</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ditti 6</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ditti 7</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ditti 8</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ditti 9</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ditti 10</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ditti 11</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ditti 12</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ditti 13</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ditti 14</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ditti 15</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ditti 16</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ditti 17</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ditti 18</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ditti 19</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ditti 20</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ditti 21</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ditti 22</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ditti 23</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ditti 24</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Ditti 25</a>
-        </li> -->
-        <li *ngFor="let ditti of dittis">
-          {{ditti.name}}</li>
       </ul>
     </div>
   </div>

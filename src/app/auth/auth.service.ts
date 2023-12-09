@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject, catchError, tap, throwError } from 'rxjs';
-import { User } from './user.model';
+import { User } from '../shared/user.model';
 import { LocalizedString } from '@angular/compiler';
 
 interface AuthResponseData {
