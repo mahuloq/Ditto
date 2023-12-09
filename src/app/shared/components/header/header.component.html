@@ -17,7 +17,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="#">Ditti 1</a>
         </li>
         <li class="nav-item">
@@ -88,7 +88,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Ditti 25</a>
-        </li>
+        </li> -->
+        <li *ngFor="let ditti of dittis">
+          {{ditti.name}}</li>
       </ul>
     </div>
   </div>
