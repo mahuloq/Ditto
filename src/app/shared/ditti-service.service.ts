@@ -37,4 +37,16 @@ export class DittiService {
   getDittisLocal() {
     return [...this.allDittis];
   }
+
+  dittiNameGetter() {
+    for (let i = 0; i < this.allDittis.length; i++) {
+      this.dittiNames[i] = this.allDittis[i].name;
+    }
+    console.log(this.dittiNames);
+    return this.dittiNames;
+  }
+
+  dittiInfo(i) {
+    return this.allDittis[i];
+  }
 }

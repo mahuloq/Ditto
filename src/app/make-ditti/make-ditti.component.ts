@@ -13,6 +13,7 @@ import { Ditti } from 'app/shared/ditti.model';
 export class MakeDittiComponent implements OnInit {
   dittiForm: FormGroup;
   dittisLoaded = false;
+  test = true;
 
   constructor(
     private router: Router,
@@ -39,32 +40,47 @@ export class MakeDittiComponent implements OnInit {
       this.dataService.getDittis();
       this.dittisLoaded = true;
       console.log('Skipped Get');
+    }
 
-      setTimeout(() => {
+    setTimeout(() => {
+      if (this.nameCheck() === true) {
+        alert('There is a subreddit already named that.');
+        return;
+      } else {
         var topics = this.dittiForm.value.topics;
         topics = topics.split(/[ ,]+/);
         topics = topics.filter((item) => item);
         const newDitti: Ditti = { ...this.dittiForm.value };
         newDitti.topics = topics;
+        newDitti.lowercaseName = newDitti.name.toLowerCase();
         this.dittiService.saveDitti(newDitti);
         this.dataService.saveDitti();
         this.dittiForm.reset();
-      }, 1000);
-    } else {
-      var topics = this.dittiForm.value.topics;
-      topics = topics.split(/[ ,]+/);
-      topics = topics.filter((item) => item);
-      const newDitti: Ditti = { ...this.dittiForm.value };
-      newDitti.topics = topics;
-      this.dittiService.saveDitti(newDitti);
-      this.dataService.saveDitti();
-      this.dittiForm.reset();
-    }
+      }
+    }, 1000);
 
     // this.router.navigate(['home']);
   }
 
   testGet() {
     this.dataService.getDittis();
+  }
+
+  nameCheck() {
+    console.log('NameCheck');
+
+    var dittis = this.dittiService.getDittisLocal();
+
+    setTimeout(() => {});
+    var length = dittis.length;
+
+    for (let i = 0; i < length; i++) {
+      if (this.dittiForm.value.name.toLowerCase() === dittis[i].lowercaseName) {
+        return true;
+      } else {
+        console.log(dittis[i].lowercaseName);
+        console.log(this.dittiForm.value.name.toLowerCase());
+      }
+    }
   }
 }
