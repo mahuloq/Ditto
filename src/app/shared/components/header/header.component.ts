@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AppRoutingModule } from 'app/app-routing.module';
 import { DataStorageService } from 'app/shared/data-storage.service';
 import { Ditti } from 'app/shared/ditti.model';
 
@@ -9,7 +11,7 @@ import { Ditti } from 'app/shared/ditti.model';
 })
 export class HeaderComponent implements OnInit {
   dittis: Ditti[] = [];
-  constructor(private dataStorageService: DataStorageService) {}
+  constructor(private dataStorageService: DataStorageService, private router: Router) {}
   ngOnInit() {
     this.getDittis();
   }
@@ -21,4 +23,11 @@ export class HeaderComponent implements OnInit {
     });
     console.log('Dittis:');
   }
+  signUp() {
+    this.router.navigate(['/auth/signup']);
+  }
+  login() {
+    this.router.navigate(['/auth/login']);
+  }
+
 }
