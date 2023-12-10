@@ -13,7 +13,7 @@ export class LoginComponent {
   isLoading=false;
   error:string= null;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -31,6 +31,7 @@ export class LoginComponent {
   this.authService.login(email,password).subscribe(resData=> {
     console.log(resData);
     this.isLoading=false;
+    this.router.navigate(['home']);
 
   },
   errorMessage => {
