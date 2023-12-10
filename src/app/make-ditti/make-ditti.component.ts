@@ -36,11 +36,11 @@ export class MakeDittiComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.dittisLoaded == false) {
-      this.dataService.getDittis();
-      this.dittisLoaded = true;
-      console.log('Skipped Get');
-    }
+    // if (this.dittisLoaded == false) {
+    //   this.dataService.getDittis();
+    //   this.dittisLoaded = true;
+    //   console.log('Skipped Get');
+    // }
 
     setTimeout(() => {
       if (this.nameCheck() === true) {

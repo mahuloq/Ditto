@@ -22,7 +22,7 @@ export class DittiComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.dataService.getDittis();
+    // this.dataService.getDittis();
 
     setTimeout(() => {
       this.allDittiNames = this.dittiService.dittiNameGetter();
