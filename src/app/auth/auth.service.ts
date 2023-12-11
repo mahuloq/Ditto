@@ -66,6 +66,13 @@ export class AuthService {
         })
       );
   }
+  logout(){
+    this.user.next(null);
+          }
+
+
+
+
   login(email: string, password: string) {
     return this.http
       .post<LoginResponseData>(this.loginEndPoint + this.apiKey, {
@@ -94,8 +101,10 @@ export class AuthService {
           );
         })
 
-
       );
+
+
+
   }
   private handleAuthentication(
     email: string,
@@ -111,3 +120,4 @@ export class AuthService {
   }
 
 }
+

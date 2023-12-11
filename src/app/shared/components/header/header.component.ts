@@ -29,7 +29,7 @@ this.userSub=this.authService.user.subscribe(user => {
   this.isAuthenticated=!!user;
   console.log(!user);
   console.log(!!user);
-  console.log(this.isAuthenticated)
+  console.log(user.token)
 })
 this.dittiService.dittiListChanged.subscribe(
   (data) => (this.dittis = data)
@@ -37,7 +37,9 @@ this.dittiService.dittiListChanged.subscribe(
 
 
   }
-
+  onLogout(){
+    this.authService.logout();
+  }
 
   signUp() {
     this.router.navigate(['/auth/signup']);
@@ -45,6 +47,7 @@ this.dittiService.dittiListChanged.subscribe(
   login() {
     this.router.navigate(['/auth/login']);
   }
+
   ngOnDestroy(): void {
       this.userSub.unsubscribe();
   }
