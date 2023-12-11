@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { AuthService } from 'app/auth/auth.service';
 import { DataStorageService } from 'app/shared/data-storage.service';
+import { DittiService } from 'app/shared/ditti-service.service';
 import { Ditti } from 'app/shared/ditti.model';
 import {  Subscription } from 'rxjs';
 
@@ -20,25 +21,24 @@ private userSub:Subscription;
   constructor(
     private dataStorageService: DataStorageService,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private dittiService:DittiService
   ) {}
   ngOnInit() {
 this.userSub=this.authService.user.subscribe(user => {
   this.isAuthenticated=!!user;
   console.log(!user);
   console.log(!!user);
+  console.log(this.isAuthenticated)
 })
+this.dittiService.dittiListChanged.subscribe(
+  (data) => (this.dittis = data)
+);
 
-    this.getDittis();
+
   }
 
-  getDittis(): void {
-    this.dataStorageService.getDittis().subscribe((data: Ditti[]) => {
-      this.dittis = data;
-      console.log(data);
-    });
-    console.log('Dittis:');
-  }
+
   signUp() {
     this.router.navigate(['/auth/signup']);
   }
