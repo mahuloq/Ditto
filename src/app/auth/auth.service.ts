@@ -101,7 +101,7 @@ export class AuthService {
             resData.idToken,
             +resData.expiresIn
           );
-         
+
         })
 
       );
@@ -119,7 +119,7 @@ export class AuthService {
     const user = new User(email, userId, token, expirationDate);
     console.log(user)
     this.user.next(user);
-    localStorage.setItem('user',JSON.stringify(user))
+    localStorage.setItem('userData',JSON.stringify(user));
   }
 
 }
