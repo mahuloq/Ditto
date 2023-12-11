@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, tap, throwError } from 'rxjs';
 import { User } from '../shared/user.model';
+import { Router } from '@angular/router';
 
 
 interface AuthResponseData {
@@ -25,7 +26,7 @@ interface LoginResponseData {
 export class AuthService {
   user = new BehaviorSubject<User>(null);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router:Router) {}
   apiKey = 'AIzaSyDIVVW0j9RT0xUJoZJkHtJlYq2nyjF7gp4';
   signupEndPoint =
     'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=';
@@ -68,6 +69,7 @@ export class AuthService {
   }
   logout(){
     this.user.next(null);
+    this.router.navigate(['/home']);
           }
 
 
@@ -99,6 +101,7 @@ export class AuthService {
             resData.idToken,
             +resData.expiresIn
           );
+         
         })
 
       );

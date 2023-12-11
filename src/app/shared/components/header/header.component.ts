@@ -30,10 +30,11 @@ this.userSub=this.authService.user.subscribe(user => {
   console.log(!user);
   console.log(!!user);
   console.log(user.token)
-})
+});
+
+
 this.dittiService.dittiListChanged.subscribe(
-  (data) => (this.dittis = data)
-);
+  (data) => (this.dittis = data))
 
 
   }
@@ -50,5 +51,5 @@ this.dittiService.dittiListChanged.subscribe(
 
   ngOnDestroy(): void {
       this.userSub.unsubscribe();
-  }
-}
+  }}
+
