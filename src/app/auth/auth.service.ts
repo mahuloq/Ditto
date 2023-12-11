@@ -4,7 +4,6 @@ import { BehaviorSubject, catchError, tap, throwError } from 'rxjs';
 import { User } from '../shared/user.model';
 import { Router } from '@angular/router';
 
-
 interface AuthResponseData {
   // kind: string;
   email: string;
@@ -26,7 +25,7 @@ interface LoginResponseData {
 export class AuthService {
   user = new BehaviorSubject<User>(null);
 
-  constructor(private http: HttpClient, private router:Router) {}
+  constructor(private http: HttpClient, private router: Router) {}
   apiKey = 'AIzaSyDIVVW0j9RT0xUJoZJkHtJlYq2nyjF7gp4';
   signupEndPoint =
     'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=';
@@ -55,22 +54,45 @@ export class AuthService {
           return throwError(errorMessage);
         }),
         tap((resData) => {
-
-
           this.handleAuthentication(
             resData.email,
             resData.localId,
             resData.idToken,
             +resData.expiresIn
           );
-
         })
       );
   }
-  logout(){
+  logout() {
     this.user.next(null);
     this.router.navigate(['/home']);
-          }
+  }
+
+
+  autoLogin() {
+    const userData: {
+      email:string;
+      id:string;
+      _token:string;
+      _tokenExpirationDate:string;
+
+    } = JSON.parse(localStorage.getItem('userData'));
+    if (!userData) {
+      return;
+    }
+    const loadedUser= new User(
+      userData.email,
+      userData.id,
+      userData._token,
+      new Date(userData._tokenExpirationDate)
+      );
+if (loadedUser.token) {
+  this.user.next(loadedUser);
+}
+
+
+
+  }
 
 
 
@@ -101,13 +123,8 @@ export class AuthService {
             resData.idToken,
             +resData.expiresIn
           );
-
         })
-
       );
-
-
-
   }
   private handleAuthentication(
     email: string,
@@ -117,10 +134,8 @@ export class AuthService {
   ) {
     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
     const user = new User(email, userId, token, expirationDate);
-    console.log(user)
+    console.log(user);
     this.user.next(user);
-    localStorage.setItem('userData',JSON.stringify(user));
+    localStorage.setItem('userData', JSON.stringify(user));
   }
-
 }
-
