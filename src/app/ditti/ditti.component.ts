@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DataStorageService } from 'app/shared/data-storage.service';
 import { DittiService } from 'app/shared/ditti-service.service';
 import { Ditti } from 'app/shared/ditti.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-ditti',
@@ -11,8 +12,12 @@ import { Ditti } from 'app/shared/ditti.model';
 })
 export class DittiComponent implements OnInit {
   public sidebarShow: boolean = true;
+
+  dittiWasFound = new BehaviorSubject<boolean>(null);
   allDittiNames;
-  currentDitti: Ditti;
+  dittiFound;
+  currentDitti: Ditti = null;
+  namesRan = false;
 
   constructor(
     private dittiService: DittiService,
@@ -23,6 +28,17 @@ export class DittiComponent implements OnInit {
 
   ngOnInit(): void {
     // this.dataService.getDittis();
+    this.dittiWasFound.subscribe((data) => {
+      if (data == false) {
+        this.router.navigate(['/404'], {
+          skipLocationChange: true,
+
+          state: {
+            source: 'ditti',
+          },
+        });
+      }
+    });
 
     setTimeout(() => {
       this.allDittiNames = this.dittiService.dittiNameGetter();
@@ -31,19 +47,22 @@ export class DittiComponent implements OnInit {
 
     setTimeout(() => {
       var tempURL = this.router.url;
+      console.log(tempURL);
+      tempURL = tempURL.split('/')[2];
 
-      tempURL = tempURL.split('/').pop();
       var length = this.allDittiNames.length;
-
-      console.log(length);
-
+      console.log(tempURL);
       for (let i = 0; i < length; i++) {
         if (tempURL.toLowerCase() === this.allDittiNames[i].toLowerCase()) {
-          this.currentDitti = this.dittiService.dittiInfo(i);
-          return console.log(this.currentDitti);
+          this.dittiFound = true;
+          return (this.currentDitti = this.dittiService.dittiInfo(i));
+        } else {
+          if (i == length - 1) {
+            this.dittiWasFound.next(false);
+          }
         }
       }
-    }, 1000);
+    }, 100);
   }
   getNames() {}
 }
