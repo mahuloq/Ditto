@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Ditti } from './ditti.model';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DittiService {
-  dittiListChanged = new Subject<Ditti[]>();
+  dittiListChanged = new BehaviorSubject<Ditti[]>(null);
   dittisLoadedChanged = new Subject<boolean>();
   constructor() {}
 
