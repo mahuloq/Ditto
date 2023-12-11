@@ -1,48 +1,16 @@
 <!-- Header with random dittis-->
-<div class="">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" routerLink="/home">Main Page</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link"
-            >Home <span class="sr-only">({{ currentDitti.name }})</span></a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link">Ditti </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link">Ditti</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" tabindex="-1" aria-disabled="true"
-            >Disabled</a
-          >
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <!-- Sidebar with title, description and rules?-->
-  <div class="sidebar-opener" (click)="sidebarShow = !sidebarShow">Sidebar</div>
+<div>
+  <app-header></app-header>
+</div>
+<router-outlet></router-outlet>
+<!-- Sidebar with title, description and rules?-->
+<div class="sidebar-opener" (click)="sidebarShow = !sidebarShow">Sidebar</div>
 
-  <div class="sidebar-slider" [class.sidebar-slide-in]="sidebarShow">
-    <div class="sidebar-close" (click)="sidebarShow = !sidebarShow">X</div>
-    <div class="sidebar-content">
-      <h2>{{ currentDitti.name }}</h2>
-      <div class="sidebar-divs">Create Post</div>
-      <div class="sidebar-title">{{ currentDitti.description }}</div>
-    </div>
+<div class="sidebar-slider" [class.sidebar-slide-in]="sidebarShow">
+  <div class="sidebar-close" (click)="sidebarShow = !sidebarShow">X</div>
+  <div class="sidebar-content">
+    <h2>{{ currentDitti.name }}</h2>
+    <div class="sidebar-divs" routerLink="">Create Post</div>
+    <div class="sidebar-title">{{ currentDitti.description }}</div>
   </div>
 </div>
