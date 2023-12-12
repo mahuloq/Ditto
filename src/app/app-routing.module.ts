@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+import { AuthGuard } from './auth/auth.guard';
+
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
+
 
 const routes: Routes = [
   {
@@ -19,11 +23,13 @@ const routes: Routes = [
   },
   {
     path: 'ditti',
+
     loadChildren: () =>
       import('./ditti/ditti.module').then((m) => m.DittiModule),
   },
   {
     path: 'make-ditti',
+    canActivate:[AuthGuard],
     loadChildren: () =>
       import('./make-ditti/make-ditti.module').then((m) => m.MakeDittiModule),
   },
