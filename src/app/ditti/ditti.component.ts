@@ -68,12 +68,18 @@ export class DittiComponent implements OnInit {
             this.dittiWasFound.next(false);
           }
         }
+        if (this.router.url.includes('/createPost')) {
+          this.displaySidebar = false;
+        }
       }
     }, 100);
-
-    if (this.router.url.includes('/createPost')) {
-      this.displaySidebar = false;
-    }
   }
-  getNames() {}
+
+  checkURL() {
+    setTimeout(() => {
+      if (this.router.url.includes('/createPost')) {
+        this.displaySidebar = false;
+      }
+    }, 50);
+  }
 }

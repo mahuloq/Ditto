@@ -15,14 +15,24 @@ export class DataStorageService {
   constructor(private http: HttpClient, private dittiService: DittiService) {}
 
   saveDitti() {
-    const test = this.dittiService.getDittisLocal();
+    const data = this.dittiService.getDittisLocal();
 
     var url = `https://ditto-group-default-rtdb.firebaseio.com/dittis.json`;
     // `https://ditto-group-default-rtdb.firebaseio.com/dittis.json`
-    this.http.put(url, test).subscribe((response) => {
+    this.http.put(url, data).subscribe((response) => {
       console.log(response);
     });
   }
+
+  // savePosts(){
+  //   const data = this.dittiService.getDittisLocal();
+
+  //   var url = `https://ditto-group-default-rtdb.firebaseio.com/dittis.json`;
+  //   // `https://ditto-group-default-rtdb.firebaseio.com/dittis.json`
+  //   this.http.post(url, data).subscribe((response) => {
+  //     console.log(response);
+  //   });
+  // }
 
   getDittis() {
     console.log('Get Dittis Data Service Ran');
