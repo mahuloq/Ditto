@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,10 +6,12 @@ import { Router } from '@angular/router';
   templateUrl: './not-found.component.html',
   styleUrls: ['./not-found.component.css'],
 })
-export class NotFoundComponent {
-  sourceOfError;
+export class NotFoundComponent implements OnInit {
+  sourceOfError = null;
 
-  constructor(private router: Router) {
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
     this.sourceOfError = this.router.getCurrentNavigation().extras.state.source;
   }
 }

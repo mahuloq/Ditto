@@ -16,14 +16,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isAuthenticated = false;
   private userSub: Subscription;
 
+
   dittis: Ditti[] = [];
+
+
+
   constructor(
-    private dataStorageService: DataStorageService,
     private router: Router,
     private authService: AuthService,
     private dittiService: DittiService
   ) {}
   ngOnInit() {
+
     this.userSub = this.authService.user.subscribe((user) => {
       this.isAuthenticated = !!user;
       console.log(!user);
@@ -37,6 +41,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
   onLogout() {
     this.authService.logout();
+
   }
 
   signUp() {
