@@ -48,9 +48,10 @@ export class MakeDittiComponent implements OnInit {
         return;
       } else {
         var topics = this.dittiForm.value.topics;
+
         topics = topics.split(/[ ,]+/);
         topics = topics.filter((item) => item);
-        const newDitti: Ditti = { ...this.dittiForm.value };
+        const newDitti: Ditti = { ...this.dittiForm.value, posts: [] };
         newDitti.topics = topics;
         newDitti.lowercaseName = newDitti.name.toLowerCase();
         this.dittiService.saveDitti(newDitti);

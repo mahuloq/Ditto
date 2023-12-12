@@ -14,9 +14,13 @@ export class DittiComponent implements OnInit {
   public sidebarShow: boolean = true;
 
   dittiWasFound = new BehaviorSubject<boolean>(null);
+  dittiIndex = new BehaviorSubject<number>(null);
+  currentDitti: Ditti = null;
+  index: number;
+
   allDittiNames;
   dittiFound;
-  currentDitti: Ditti = null;
+
   namesRan = false;
   displaySidebar = true;
 
@@ -55,7 +59,8 @@ export class DittiComponent implements OnInit {
       console.log(tempURL);
       for (let i = 0; i < length; i++) {
         if (tempURL.toLowerCase() === this.allDittiNames[i].toLowerCase()) {
-          this.dittiFound = true;
+          this.dittiIndex.next(i);
+
           return (this.currentDitti = this.dittiService.dittiInfo(i));
         } else {
           if (i == length - 1) {
