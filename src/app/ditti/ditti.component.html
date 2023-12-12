@@ -1,7 +1,3 @@
-<!-- Header with random dittis-->
-<div>
-  <app-header></app-header>
-</div>
 <router-outlet></router-outlet>
 <!-- Sidebar with title, description and rules?-->
 <div
@@ -18,10 +14,10 @@
 >
   <div class="sidebar-close" (click)="sidebarShow = !sidebarShow">X</div>
   <div class="sidebar-content">
-    <h2>{{ currentDitti.name }}</h2>
+    <h2 class="dittiName">{{ currentDitti.name }}</h2>
     <div
-      *ngIf=""
       class="sidebar-divs"
+      (click)="checkURL()"
       routerLink="{{ currentDitti.name }}/createPost"
     >
       Create Post
