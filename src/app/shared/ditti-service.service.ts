@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Ditti } from './ditti.model';
 
-import { BehaviorSubject} from 'rxjs';
-
+import { BehaviorSubject } from 'rxjs';
+import { Post } from './post.model';
 
 @Injectable({
   providedIn: 'root',
@@ -20,6 +20,7 @@ export class DittiService {
 
   saveDitti(ditti: Ditti) {
     this.allDittis.push(ditti);
+
     console.log(this.allDittis);
     this.dittiListChanged.next(this.getDittisLocal());
   }
@@ -52,5 +53,16 @@ export class DittiService {
 
   dittiInfo(i) {
     return this.allDittis[i];
+  }
+
+  addPost(data: Post, i) {
+    if (this.allDittis[i].posts) {
+      this.allDittis[i].posts.push(data);
+    } else {
+      this.allDittis[i].posts = [data];
+    }
+
+    console.log(this.allDittis[i]);
+    console.log(this.allDittis[i].posts);
   }
 }
