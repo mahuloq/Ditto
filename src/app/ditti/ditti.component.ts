@@ -18,6 +18,7 @@ export class DittiComponent implements OnInit {
   dittiFound;
   currentDitti: Ditti = null;
   namesRan = false;
+  displaySidebar = true;
 
   constructor(
     private dittiService: DittiService,
@@ -58,11 +59,16 @@ export class DittiComponent implements OnInit {
           return (this.currentDitti = this.dittiService.dittiInfo(i));
         } else {
           if (i == length - 1) {
+            console.log('404 Test');
             this.dittiWasFound.next(false);
           }
         }
       }
     }, 100);
+
+    if (this.router.url.includes('/createPost')) {
+      this.displaySidebar = false;
+    }
   }
   getNames() {}
 }

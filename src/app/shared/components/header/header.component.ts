@@ -5,7 +5,7 @@ import { AuthService } from 'app/auth/auth.service';
 import { DataStorageService } from 'app/shared/data-storage.service';
 import { DittiService } from 'app/shared/ditti-service.service';
 import { Ditti } from 'app/shared/ditti.model';
-import {  Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -13,37 +13,27 @@ import {  Subscription } from 'rxjs';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-isAuthenticated=false;
-private userSub:Subscription;
-
-
+  isAuthenticated = false;
+  private userSub: Subscription;
   dittis: Ditti[] = [];
-  constructor(
-    private dataStorageService: DataStorageService,
 
+  constructor(
+    private router: Router,
+    private authService: AuthService,
     private dittiService: DittiService
   ) {}
   ngOnInit() {
-    
     this.dittiService.dittiListChanged.subscribe(
       (data) => (this.dittis = data)
     );
+
+    this.userSub = this.authService.user.subscribe((user) => {
+      this.isAuthenticated = !!user;
+      console.log(!user);
+      console.log(!!user);
+    });
   }
 
-
-
-    private router: Router,
-    private authService: AuthService
-  ) {}
-  ngOnInit() {
-this.userSub=this.authService.user.subscribe(user => {
-  this.isAuthenticated=!!user;
-  console.log(!user);
-  console.log(!!user);
-})
-
-
-  }
   signUp() {
     this.router.navigate(['/auth/signup']);
   }
@@ -51,6 +41,6 @@ this.userSub=this.authService.user.subscribe(user => {
     this.router.navigate(['/auth/login']);
   }
   ngOnDestroy(): void {
-      this.userSub.unsubscribe();
+    this.userSub.unsubscribe();
   }
-
+}

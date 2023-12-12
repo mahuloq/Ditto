@@ -4,13 +4,28 @@
 </div>
 <router-outlet></router-outlet>
 <!-- Sidebar with title, description and rules?-->
-<div class="sidebar-opener" (click)="sidebarShow = !sidebarShow">Sidebar</div>
-
-<div class="sidebar-slider" [class.sidebar-slide-in]="sidebarShow">
+<div
+  *ngIf="displaySidebar == true"
+  class="sidebar-opener"
+  (click)="sidebarShow = !sidebarShow"
+>
+  Sidebar
+</div>
+<div
+  *ngIf="displaySidebar == true"
+  class="sidebar-slider"
+  [class.sidebar-slide-in]="sidebarShow"
+>
   <div class="sidebar-close" (click)="sidebarShow = !sidebarShow">X</div>
   <div class="sidebar-content">
     <h2>{{ currentDitti.name }}</h2>
-    <div class="sidebar-divs" routerLink="">Create Post</div>
+    <div
+      *ngIf=""
+      class="sidebar-divs"
+      routerLink="{{ currentDitti.name }}/createPost"
+    >
+      Create Post
+    </div>
     <div class="sidebar-title">{{ currentDitti.description }}</div>
   </div>
 </div>
