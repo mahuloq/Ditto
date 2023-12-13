@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DataStorageService } from 'app/shared/data-storage.service';
 import { DittiService } from 'app/shared/ditti-service.service';
 import { Ditti } from 'app/shared/ditti.model';
@@ -15,6 +15,7 @@ export class DittiComponent implements OnInit {
 
   dittiWasFound = new BehaviorSubject<boolean>(null);
   dittiIndex = new BehaviorSubject<number>(null);
+  dittiContent = new BehaviorSubject<Ditti>(null);
   currentDitti: Ditti = null;
   index: number;
 
@@ -31,8 +32,15 @@ export class DittiComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
+  ionViewWillEnter() {}
+
   ngOnInit(): void {
     // this.dataService.getDittis();
+
+    this.route.params.subscribe((params: Params) => {
+      console.log(params['type']);
+    });
+
     this.dittiWasFound.subscribe((data) => {
       if (data == false) {
         this.router.navigate(['/404'], {
@@ -61,7 +69,8 @@ export class DittiComponent implements OnInit {
         if (tempURL.toLowerCase() === this.allDittiNames[i].toLowerCase()) {
           this.dittiIndex.next(i);
 
-          return (this.currentDitti = this.dittiService.dittiInfo(i));
+          this.currentDitti = this.dittiService.dittiInfo(i);
+          return this.dittiContent.next(this.currentDitti);
         } else {
           if (i == length - 1) {
             console.log('404 Test');
