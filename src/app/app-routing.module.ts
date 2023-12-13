@@ -5,7 +5,6 @@ import { AuthGuard } from './auth/auth.guard';
 
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -29,7 +28,7 @@ const routes: Routes = [
   },
   {
     path: 'make-ditti',
-    canActivate:[AuthGuard],
+    canActivate: [AuthGuard],
     loadChildren: () =>
       import('./make-ditti/make-ditti.module').then((m) => m.MakeDittiModule),
   },
