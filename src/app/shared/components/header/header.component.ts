@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { AuthService } from 'app/auth/auth.service';
-import { DataStorageService } from 'app/shared/data-storage.service';
+
 import { DittiService } from 'app/shared/ditti-service.service';
 import { Ditti } from 'app/shared/ditti.model';
 import { Subscription } from 'rxjs';
