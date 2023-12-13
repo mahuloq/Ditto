@@ -32,23 +32,21 @@
 
 
         <ul class="list-group nav-item" style="flex-direction: row;">
-          <li *ngIf="!isAuthenticated" class="nav-item list-group-item  ml-auto">
+          <li *ngIf="!isAuthenticated" class="nav-item list-group-item  ml-0">
             <a class="nav-link active " aria-current="page" (click)="signUp()">Sign-Up</a>
           </li>
-          <li *ngIf="!isAuthenticated" class="nav-item list-group-item  ml-auto">
+          <li *ngIf="!isAuthenticated" class="nav-item list-group-item  ml-0">
             <a class="nav-link active " aria-current="page" (click)="login()">Login</a>
           </li>
 
 
-          <li *ngIf="isAuthenticated" class="nav-item list-group-item  ml-auto">
+          <li *ngIf="isAuthenticated" class="nav-item list-group-item  ml-0">
             <a class="nav-link" aria-current="page" (click)="onLogout()">Logout</a>
           </li>
 
 
 
-        <li *ngIf="!isAuthenticated" class="nav-item list-group-item ml-auto">
-          <a class="nav-link" aria-current="page">Logout</a>
-        </li>
+
       </ul>
     </div>
   </div>
