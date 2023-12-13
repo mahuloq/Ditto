@@ -1,5 +1,8 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid d-flex justify-content-between">
+
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary " style="background-color: #f0f3f5 ;">
+
+  <div class="container-fluid d-flex justify-content-between header">
     <a class="navbar-brand" href="#">Ditti</a>
     <button
       class="navbar-toggler"
@@ -27,23 +30,21 @@
         </ul>
       </ul>
 
-      <ul class="list-group nav-item" style="flex-direction: row">
-        <li *ngIf="!isAuthenticated" class="nav-item list-group-item ml-auto">
-          <a class="nav-link active" aria-current="page" (click)="signUp()"
-            >Sign-Up</a
-          >
-        </li>
-        <li *ngIf="!isAuthenticated" class="nav-item list-group-item ml-auto">
-          <a class="nav-link active" aria-current="page" (click)="login()"
-            >Login</a
-          >
-        </li>
 
-        <li *ngIf="isAuthenticated" class="nav-item list-group-item ml-auto">
-          <a class="nav-link" aria-current="page" (click)="onLogout()"
-            >Logout</a
-          >
-        </li>
+        <ul class="list-group nav-item" style="flex-direction: row;">
+          <li *ngIf="!isAuthenticated" class="nav-item list-group-item  ml-auto">
+            <a class="nav-link active " aria-current="page" (click)="signUp()">Sign-Up</a>
+          </li>
+          <li *ngIf="!isAuthenticated" class="nav-item list-group-item  ml-auto">
+            <a class="nav-link active " aria-current="page" (click)="login()">Login</a>
+          </li>
+
+
+          <li *ngIf="isAuthenticated" class="nav-item list-group-item  ml-auto">
+            <a class="nav-link" aria-current="page" (click)="onLogout()">Logout</a>
+          </li>
+
+
 
         <li *ngIf="!isAuthenticated" class="nav-item list-group-item ml-auto">
           <a class="nav-link" aria-current="page">Logout</a>
@@ -52,3 +53,4 @@
     </div>
   </div>
 </nav>
+
