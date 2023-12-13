@@ -13,7 +13,7 @@
         <hr />
         <form [formGroup]="createPostForm" (ngSubmit)="onSubmit()">
           <div class="formParts">
-            <label class="subHeader" for="name"
+            <label class="subHeader" for="title"
               >Title
               <span class="labelDescipt"
                 ><br />
@@ -23,9 +23,9 @@
             <br />
             <input
               type="text"
-              id="name"
-              name="name"
-              formControlName="name"
+              id="title"
+              name="title"
+              formControlName="title"
               class="form-control"
               placeholder="Title of Post!"
             />
@@ -40,8 +40,8 @@
             >
             <br />
             <textarea
-              name="desciption"
-              id="desciption"
+              name="description"
+              id="description"
               cols="30"
               rows="10"
               formControlName="description"
