@@ -1,7 +1,13 @@
-<p>ditti-home works!</p>
-<p>ditti-home works!</p>
-<p>ditti-home works!</p>
-<p>ditti-home works!</p>
-<p>ditti-home works!</p>
-<p>ditti-home works!</p>
-<p>ditti-home works!</p>
+<div>
+  <ul
+    class="list-group"
+    style="text-align: center; justify-content: space-evenly"
+  >
+    <li
+      class="list-group-item"
+      *ngFor="let posts of dittis.posts; let x = index"
+    >
+      <p>{{ posts.title }}</p>
+    </li>
+  </ul>
+</div>
