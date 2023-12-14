@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import {
+  ActivatedRoute,
+  Params,
+  Router,
+  RoutesRecognized,
+} from '@angular/router';
 import { DataStorageService } from 'app/shared/data-storage.service';
 import { DittiService } from 'app/shared/ditti-service.service';
 import { Ditti } from 'app/shared/ditti.model';
@@ -35,10 +40,41 @@ export class DittiComponent implements OnInit {
   ionViewWillEnter() {}
 
   ngOnInit(): void {
-    // this.dataService.getDittis();
+    this.router.events.subscribe((val) => {
+      if (val instanceof RoutesRecognized) {
+        setTimeout(() => {
+          this.allDittiNames = this.dittiService.dittiNameGetter();
+          console.log(this.allDittiNames);
+        }, 75);
 
-    this.route.params.subscribe((params: Params) => {
-      console.log(params['type']);
+        setTimeout(() => {
+          var tempURL = this.router.url;
+          console.log(tempURL);
+          tempURL = tempURL.split('/')[2];
+
+          var length = this.allDittiNames.length;
+          console.log(tempURL);
+
+          for (let i = 0; i < length; i++) {
+            if (tempURL.toLowerCase() === this.allDittiNames[i].toLowerCase()) {
+              this.dittiIndex.next(i);
+
+              this.currentDitti = this.dittiService.dittiInfo(i);
+              return this.dittiContent.next(this.currentDitti);
+            } else {
+              if (i == length - 1) {
+                console.log('404 Test');
+                this.dittiWasFound.next(false);
+              }
+            }
+            if (this.router.url.includes('/createPost')) {
+              this.displaySidebar = false;
+            } else {
+              this.displaySidebar = true;
+            }
+          }
+        }, 100);
+      }
     });
 
     this.dittiWasFound.subscribe((data) => {
@@ -65,6 +101,7 @@ export class DittiComponent implements OnInit {
 
       var length = this.allDittiNames.length;
       console.log(tempURL);
+
       for (let i = 0; i < length; i++) {
         if (tempURL.toLowerCase() === this.allDittiNames[i].toLowerCase()) {
           this.dittiIndex.next(i);
