@@ -23,7 +23,7 @@
   color: #767978;
 }
 
-.header {
+.headerS {
   text-align: center;
   color: #c9dce8;
 }
@@ -42,11 +42,22 @@
 }
 
 .sidebar {
-  position: fixed;
-  height: 100vh;
+  min-height: 100%;
+  width: 250px;
 }
 
 .page {
   background-color: #1b1a1d;
   min-height: 100vh;
+  width: 100%;
+  padding-top: 50px;
+}
+.box {
+  display: flex;
+}
+
+.position {
+  position: sticky;
+
+  top: 0;
 }
