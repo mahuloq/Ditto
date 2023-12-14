@@ -5,6 +5,7 @@
   >
     <li
       class="list-group-item"
+      (click)="navigate(x)"
       *ngFor="let posts of dittis.posts; let x = index"
     >
       <p>{{ posts.title }}</p>

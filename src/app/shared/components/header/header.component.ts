@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RoutesRecognized } from '@angular/router';
 
 import { AuthService } from 'app/auth/auth.service';
 
@@ -17,6 +17,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private userSub: Subscription;
   private routeSub = new Subscription();
   dittis: Ditti[] = [];
+  previousDitti;
+  currentLocation;
 
   constructor(
     private router: Router,
@@ -25,6 +27,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute
   ) {}
   ngOnInit() {
+    this.router.events.subscribe((val) => {
+      if (val instanceof RoutesRecognized) {
+        if (val.url == '/') {
+          this.currentLocation = true;
+        } else {
+          this.currentLocation = false;
+        }
+      }
+    });
+
     this.userSub = this.authService.user.subscribe((user) => {
       this.isAuthenticated = !!user;
       console.log(!user);
@@ -37,6 +49,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.routeSub = this.route.paramMap.subscribe((params) => {
       const dittiName = params.get('name');
     });
+  }
+
+  navigate() {
+    if (event.target instanceof Element) {
+      let data = event.target.id;
+      if (data == 'home') {
+        this.router.navigate(['']);
+      } else {
+        this.router.navigate(['/ditti', this.previousDitti]);
+      }
+    }
   }
   onLogout() {
     this.authService.logout();
@@ -53,6 +76,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.userSub.unsubscribe();
   }
   navigateToDitti(dittiName: string) {
+    this.previousDitti = dittiName;
     this.router.navigate(['/ditti', dittiName]);
   }
 }
