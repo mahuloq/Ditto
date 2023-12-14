@@ -20,6 +20,9 @@ interface LoginResponseData {
   localId: string;
   registered?: boolean;
 }
+interface resetResponseData {
+  email: string;
+}
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -32,6 +35,9 @@ export class AuthService {
     'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=';
   loginEndPoint =
     'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=';
+
+  passwordResetEndPoint =
+    'https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=';
 
   // user = new Subject<User>()
 
@@ -73,7 +79,7 @@ export class AuthService {
     this.tokenExpirationTimer = null;
   }
   autoLogout(expirationDuration: number) {
-    console.log(expirationDuration)
+    console.log(expirationDuration);
     this.tokenExpirationTimer = setTimeout(() => {
       this.logout();
     }, expirationDuration);
@@ -96,13 +102,21 @@ export class AuthService {
       new Date(userData._tokenExpirationDate)
     );
     if (loadedUser.token) {
-
       this.user.next(loadedUser);
-      const expirationDurtion=
-      new Date(userData._tokenExpirationDate).getTime()-
-      new Date().getTime()
+      const expirationDurtion =
+        new Date(userData._tokenExpirationDate).getTime() -
+        new Date().getTime();
       this.autoLogout(expirationDurtion);
     }
+  }
+  reset(requestType: string, email: string) {
+    return this.http.post<resetResponseData>(
+      this.passwordResetEndPoint + this.apiKey,
+      {
+        requestType: requestType,
+        email: email,
+      }
+    );
   }
 
   login(email: string, password: string) {
@@ -144,7 +158,7 @@ export class AuthService {
     const user = new User(email, userId, token, expirationDate);
     console.log(user);
     this.user.next(user);
-    this.autoLogout(expiresIn*1000);
+    this.autoLogout(expiresIn * 1000);
     localStorage.setItem('userData', JSON.stringify(user));
   }
 }
