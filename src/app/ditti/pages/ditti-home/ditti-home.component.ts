@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DittiComponent } from 'app/ditti/ditti.component';
+import { Ditti } from 'app/shared/ditti.model';
 
 @Component({
   selector: 'app-ditti-home',
@@ -9,25 +10,30 @@ import { DittiComponent } from 'app/ditti/ditti.component';
 })
 export class DittiHomeComponent {
   index;
-  dittis;
+  dittis: Ditti;
   constructor(
     private mainDitti: DittiComponent,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      console.log(params['type']);
-      console.log(params);
-    });
-
     this.mainDitti.dittiIndex.subscribe((data) => {
       this.index = data;
 
       this.mainDitti.dittiContent.subscribe((data) => {
         this.dittis = data;
-        console.log(this.dittis);
       });
     });
+  }
+
+  navigate(x) {
+    let title = this.addDashes(this.dittis.posts[x].title);
+    console.log(title);
+
+    this.router.navigate(['/ditti', this.dittis.name, 'comments', x, title]);
+  }
+  addDashes(string) {
+    return string.replaceAll(' ', '-');
   }
 }
