@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataStorageService } from 'app/shared/data-storage.service';
 import { DittiService } from 'app/shared/ditti-service.service';
 import { Ditti } from 'app/shared/ditti.model';
+import { Post } from 'app/shared/post.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -10,9 +13,13 @@ import { Ditti } from 'app/shared/ditti.model';
 })
 export class HomeComponent implements OnInit {
   dittis: Ditti[] = [];
+  commentSelectedHome = new BehaviorSubject<Post>(null);
+  indexSelectedHome = new BehaviorSubject<number>(null);
+
   constructor(
     private dataStorageService: DataStorageService,
-    private dittiService: DittiService
+    private dittiService: DittiService,
+    private router: Router
   ) {}
   ngOnInit() {
     // this.getDittis();
@@ -21,11 +28,13 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  //    getDittis(): void {
-  //     this.dataStorageService.getDittis().subscribe((data:Ditti[])=>{
-  // this.dittis = data;
-  // console.log(data)
-  //     })
-  //     console.log('Dittis:');
-  //   }
+  navigate(i, x) {
+    let title = this.addDashes(this.dittis[i].posts[x].title);
+    this.indexSelectedHome.next(i);
+    this.commentSelectedHome.next(this.dittis[i].posts[x]);
+    this.router.navigate(['/ditti', this.dittis[i].name, 'comments', x, title]);
+  }
+  addDashes(string) {
+    return string.replaceAll(' ', '-');
+  }
 }
