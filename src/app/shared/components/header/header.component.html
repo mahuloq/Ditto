@@ -1,10 +1,10 @@
 <nav
-  class="navbar navbar-expand-lg bg-body-tertiary"
+  class="navbar navbar-expand-lg bg-body-tertiary sticky-top "
 
   style="background-color: #031926"
 
 >
-  <div class="container-fluid d-flex justify-content-between header">
+  <div class="container-fluid d-flex header">
     <a class="navbar-brand" (click)="navigate()" id="home"><img src="https://www.airsquirrels.com/hubfs/Logos/Ditto%20Logos/03%20Small/DittoTypeWhiteRGB_TighterCrop.png" style="width: 125px;"></a>
     <button
       class="navbar-toggler"
@@ -29,22 +29,26 @@
           >
         </li>
 
-        <ul class="list-group" style="flex-direction: row">
-          <li class="list-group-item" *ngFor="let ditti of dittis">
+
+        <ul class="list-group py-0" style="flex-direction: row;">
+          <li class="list-group-item mx-2 text-align-center" *ngFor="let ditti of dittis" style="border-radius: 5px;" >
             <a class="nav-link" (click)="navigateToDitti(ditti.name)">{{
               ditti.name
             }}</a>
           </li>
+
         </ul>
+
+
       </ul>
 
-      <ul class="list-group nav-item" style="flex-direction: row">
-        <li *ngIf="!isAuthenticated" class="nav-item list-group-item ml-0">
+      <ul class="list-group nav-item mx-2 " style="flex-direction: row;">
+        <li *ngIf="!isAuthenticated" class="nav-item list-group-item">
           <a class="nav-link active" aria-current="page" (click)="signUp()"
             >Sign-Up</a
           >
         </li>
-        <li *ngIf="!isAuthenticated" class="nav-item list-group-item ml-0">
+        <li *ngIf="!isAuthenticated" class="nav-item list-group-item">
           <a class="nav-link active" aria-current="page" (click)="login()"
             >Login</a
           >
