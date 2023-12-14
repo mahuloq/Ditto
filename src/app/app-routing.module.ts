@@ -19,6 +19,7 @@ const routes: Routes = [
   {
     path: 'home',
     redirectTo: '',
+    pathMatch: 'full',
   },
   {
     path: 'ditti',
