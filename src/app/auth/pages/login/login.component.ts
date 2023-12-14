@@ -12,6 +12,7 @@ export class LoginComponent {
   loginForm: FormGroup;
   isLoading=false;
   error:string= null;
+  reset= this.authService.reset;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -44,5 +45,7 @@ export class LoginComponent {
 );
     loginForm.reset();
 }
-  }
 
+
+
+  }
