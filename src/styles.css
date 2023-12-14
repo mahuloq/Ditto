@@ -12,7 +12,8 @@
 *{
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 600;
-  background-color: ;
+  font-size: 18px;
+
 }
 
 
@@ -27,7 +28,7 @@ li{
   flex-direction: row;
   color: rgb(241, 233, 233);
   font-size: 16px;
-  padding: 16px;
+  padding: 20px;
   height: 100%;
-  background-color:#d0e3c4;
+  background-color:#468189;
 }
