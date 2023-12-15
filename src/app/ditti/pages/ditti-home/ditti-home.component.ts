@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DittiComponent } from 'app/ditti/ditti.component';
+import { DittiService } from 'app/shared/ditti-service.service';
 import { Ditti } from 'app/shared/ditti.model';
 import { Post } from 'app/shared/post.model';
 import { BehaviorSubject } from 'rxjs';
@@ -16,17 +17,13 @@ export class DittiHomeComponent {
   commentSelected = new BehaviorSubject<Post>(null);
   indexSelected = new BehaviorSubject<number>(null);
 
-  constructor(
-    private mainDitti: DittiComponent,
-    private route: ActivatedRoute,
-    private router: Router
-  ) {}
+  constructor(private router: Router, private dittiService: DittiService) {}
 
   ngOnInit(): void {
-    this.mainDitti.dittiIndex.subscribe((data) => {
+    this.dittiService.dittiIndex.subscribe((data) => {
       this.index = data;
     });
-    this.mainDitti.dittiContent.subscribe((data) => {
+    this.dittiService.dittiContent.subscribe((data) => {
       this.dittis = data;
     });
   }
@@ -35,9 +32,9 @@ export class DittiHomeComponent {
     let title = this.addDashes(this.dittis.posts[x].title);
     console.log(title);
 
-    this.indexSelected.next(this.index);
+    this.dittiService.postIndex.next(this.index);
     console.log(this.index);
-    this.commentSelected.next(this.dittis.posts[x]);
+    this.dittiService.postContent.next(this.dittis.posts[x]);
     console.log(this.dittis.posts[x]);
     this.router.navigate(['/ditti', this.dittis.name, 'comments', x, title]);
   }

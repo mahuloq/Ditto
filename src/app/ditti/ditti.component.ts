@@ -29,6 +29,7 @@ export class DittiComponent implements OnInit {
 
   namesRan = false;
   displaySidebar = true;
+  // displayComment = false;
 
   constructor(
     private dittiService: DittiService,
@@ -57,10 +58,10 @@ export class DittiComponent implements OnInit {
 
           for (let i = 0; i < length; i++) {
             if (tempURL.toLowerCase() === this.allDittiNames[i].toLowerCase()) {
-              this.dittiIndex.next(i);
+              this.dittiService.dittiIndex.next(i);
 
               this.currentDitti = this.dittiService.dittiInfo(i);
-              return this.dittiContent.next(this.currentDitti);
+              return this.dittiService.dittiContent.next(this.currentDitti);
             } else {
               if (i == length - 1) {
                 console.log('404 Test');
@@ -77,8 +78,14 @@ export class DittiComponent implements OnInit {
       }
     });
 
+    //checks to see if data exists to navigate to, if not 404, unless its auth
+
     this.dittiWasFound.subscribe((data) => {
-      if (data == false) {
+      if (this.router.url.includes('/auth')) {
+        var urlReturn = this.router.url.split('/')[2];
+        this.dittiService.authReturn.next(urlReturn);
+        return;
+      } else if (data == false) {
         this.router.navigate(['/404'], {
           skipLocationChange: true,
 
@@ -104,10 +111,10 @@ export class DittiComponent implements OnInit {
 
       for (let i = 0; i < length; i++) {
         if (tempURL.toLowerCase() === this.allDittiNames[i].toLowerCase()) {
-          this.dittiIndex.next(i);
+          this.dittiService.dittiIndex.next(i);
 
           this.currentDitti = this.dittiService.dittiInfo(i);
-          return this.dittiContent.next(this.currentDitti);
+          return this.dittiService.dittiContent.next(this.currentDitti);
         } else {
           if (i == length - 1) {
             console.log('404 Test');
@@ -127,5 +134,11 @@ export class DittiComponent implements OnInit {
         this.displaySidebar = false;
       }
     }, 50);
+
+    // setTimeout(() => {
+    //   if (this.router.url.includes('/comments')) {
+    //     this.displayComment = true;
+    //   }
+    // }, 50);
   }
 }
