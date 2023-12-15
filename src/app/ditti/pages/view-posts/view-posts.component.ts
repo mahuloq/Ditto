@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { HomeComponent } from 'app/home/home.component';
 import { DittiHomeComponent } from '../ditti-home/ditti-home.component';
 import { Post } from 'app/shared/post.model';
+import { DittiService } from 'app/shared/ditti-service.service';
+import { Router, RoutesRecognized } from '@angular/router';
+import { Ditti } from 'app/shared/ditti.model';
 
 @Component({
   selector: 'app-view-posts',
@@ -11,23 +14,48 @@ import { Post } from 'app/shared/post.model';
 })
 export class ViewPostsComponent implements OnInit {
   post: Post;
-  dittiIndex;
+  postIndex: number = null;
 
-  constructor() // public dittiHome: DittiHomeComponent // public home: HomeComponent,
-  {}
+  dittiIndex: number = null;
+  dittiContent: Ditti;
+
+  constructor(private dittiService: DittiService, private router: Router) {}
 
   ngOnInit(): void {
-    // this.home.commentSelectedHome.subscribe((data) => {
-    //   this.post = data;
-    // });
-    // this.home.indexSelectedHome.subscribe((data) => {
-    //   this.dittiIndex = data;
-    // });
-    // this.dittiHome.commentSelected.subscribe((data) => {
-    //   this.post = data;
-    // });
-    // this.dittiHome.indexSelected.subscribe((data) => {
-    //   this.dittiIndex = data;
-    // });
+    setTimeout(() => {
+      this.dittiService.postIndex.subscribe((data) => {
+        this.postIndex = data;
+      });
+      this.dittiService.postContent.subscribe((data) => {
+        this.post = data;
+      });
+      this.dittiService.dittiIndex.subscribe((data) => {
+        this.dittiIndex = data;
+      });
+      this.dittiService.dittiContent.subscribe((data) => {
+        this.dittiContent = data;
+      });
+
+      if (this.postIndex == null && this.dittiIndex !== null) {
+        console.log('View Post Test For Direct URL');
+
+        this.postIndex = +this.router.url.split('/')[4];
+
+        this.post = this.dittiContent.posts[this.postIndex];
+      }
+    }, 150);
+
+    this.dittiService.postIndex.subscribe((data) => {
+      this.postIndex = data;
+    });
+    this.dittiService.postContent.subscribe((data) => {
+      this.post = data;
+    });
+    this.dittiService.dittiIndex.subscribe((data) => {
+      this.dittiIndex = data;
+    });
+    this.dittiService.dittiContent.subscribe((data) => {
+      this.dittiContent = data;
+    });
   }
 }

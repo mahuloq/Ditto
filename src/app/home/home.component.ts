@@ -30,8 +30,8 @@ export class HomeComponent implements OnInit {
 
   navigate(i, x) {
     let title = this.addDashes(this.dittis[i].posts[x].title);
-    this.indexSelectedHome.next(i);
-    this.commentSelectedHome.next(this.dittis[i].posts[x]);
+    this.dittiService.postIndex.next(i);
+    this.dittiService.postContent.next(this.dittis[i].posts[x]);
     this.router.navigate(['/ditti', this.dittis[i].name, 'comments', x, title]);
   }
   addDashes(string) {
