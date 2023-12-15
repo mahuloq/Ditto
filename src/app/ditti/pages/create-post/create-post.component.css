@@ -5,11 +5,12 @@
 
 .overlay {
   margin: auto;
-
+  background-color: #84c7da;
   width: 650px;
-  border: solid #d2d4ba 1px;
+  border: solid #1B3146 1px;
   padding: 10px;
   z-index: 3;
+  border-radius: 25px;
   /* position: absolute; */
   /* top: 50%;
   left: 50%;
