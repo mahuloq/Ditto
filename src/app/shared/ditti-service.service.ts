@@ -12,11 +12,21 @@ export class DittiService {
 
   dittisLoadedChanged = new BehaviorSubject<boolean>(null);
 
+  dittiIndex = new BehaviorSubject<number>(null);
+  dittiContent = new BehaviorSubject<Ditti>(null);
+
+  postIndex = new BehaviorSubject<number>(null);
+  postContent = new BehaviorSubject<Post>(null);
+
+  currentDitti: Ditti = null;
+
   constructor() {}
 
   dittiNames = [];
   dittisLoaded: boolean = false;
   allDittis: Ditti[] = [];
+
+  authReturn = new BehaviorSubject<string>(null);
 
   saveDitti(ditti: Ditti) {
     this.allDittis.push(ditti);
@@ -65,4 +75,8 @@ export class DittiService {
     console.log(this.allDittis[i]);
     console.log(this.allDittis[i].posts);
   }
+
+  updateIndex() {}
+
+  updateDittiContent() {}
 }
