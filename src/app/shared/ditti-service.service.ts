@@ -9,14 +9,23 @@ import { Post } from './post.model';
 })
 export class DittiService {
   dittiListChanged = new BehaviorSubject<Ditti[]>(null);
-
   dittisLoadedChanged = new BehaviorSubject<boolean>(null);
 
-  constructor() {}
+  dittiIndex = new BehaviorSubject<number>(null);
+  dittiContent = new BehaviorSubject<Ditti>(null);
+
+  postIndex = new BehaviorSubject<number>(null);
+  postContent = new BehaviorSubject<Post>(null);
+
+  currentDitti: Ditti = null;
 
   dittiNames = [];
   dittisLoaded: boolean = false;
   allDittis: Ditti[] = [];
+
+  authReturn = new BehaviorSubject<string>(null);
+
+  constructor() {}
 
   saveDitti(ditti: Ditti) {
     this.allDittis.push(ditti);
@@ -64,5 +73,10 @@ export class DittiService {
 
     console.log(this.allDittis[i]);
     console.log(this.allDittis[i].posts);
+    return this.allDittis[i].posts.length;
   }
+
+  updateIndex() {}
+
+  updateDittiContent() {}
 }
