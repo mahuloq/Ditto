@@ -17,12 +17,7 @@ export class DittiHomeComponent {
   commentSelected = new BehaviorSubject<Post>(null);
   indexSelected = new BehaviorSubject<number>(null);
 
-  constructor(
-    private mainDitti: DittiComponent,
-    private route: ActivatedRoute,
-    private router: Router,
-    private dittiService: DittiService
-  ) {}
+  constructor(private router: Router, private dittiService: DittiService) {}
 
   ngOnInit(): void {
     this.dittiService.dittiIndex.subscribe((data) => {

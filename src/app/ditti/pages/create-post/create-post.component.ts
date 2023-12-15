@@ -15,6 +15,7 @@ export class CreatePostComponent implements OnInit {
   createPostForm: FormGroup;
   displaySidebar = true;
   index: number;
+  dittiName;
   constructor(
     private router: Router,
     private mainDitti: DittiComponent,
@@ -23,7 +24,9 @@ export class CreatePostComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.mainDitti.dittiIndex.subscribe((data) => {
+    this.dittiName = this.router.url.split('/')[2];
+
+    this.dittiService.dittiIndex.subscribe((data) => {
       this.index = data;
     });
 
@@ -37,7 +40,14 @@ export class CreatePostComponent implements OnInit {
     console.log(this.index);
     const newPost: Post = { ...this.createPostForm.value };
     console.log(newPost);
-    this.dittiService.addPost(newPost, this.index);
+    const postIndex = this.dittiService.addPost(newPost, this.index);
     this.dataService.saveDitti();
+    const url = `/ditti/${
+      this.dittiName
+    }/comments/${postIndex}/${newPost.title.replaceAll(' ', '-')}`;
+    this.router.navigateByUrl(url);
+    this.dittiService.postIndex.next(postIndex);
+    this.dittiService.postContent.next(newPost);
+    this.dittiService.dittiIndex.next(this.index);
   }
 }

@@ -3,8 +3,9 @@
     <a class="navbar-brand" id="home" style="cursor: pointer"
       ><img
         src="https://www.airsquirrels.com/hubfs/Logos/Ditto%20Logos/03%20Small/DittoTypeWhiteRGB_TighterCrop.png"
-        onclick="navigate()"
+        (click)="navigate()"
         style="width: 125px"
+        id="home"
     /></a>
     <button
       class="navbar-toggler"
@@ -19,13 +20,13 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li *ngIf="!currentLocation" class="nav-item">
+        <li *ngIf="!isHome" class="nav-item">
           <a
             class="nav-link active"
             aria-current="page"
             id="dittiHome"
             (click)="navigate()"
-            >Home</a
+            >{{ currentLocation }}</a
           >
         </li>
 
@@ -48,18 +49,45 @@
       </ul>
 
       <ul class="list-group nav-item mx-2" style="flex-direction: row">
-        <li *ngIf="!isAuthenticated" class="nav-item list-group-item" style="background-color: #EAEAE8;color: #1b3146;border-radius: 5px;border: 1px solid #1b3146;">
+        <li
+          *ngIf="!isAuthenticated"
+          class="nav-item list-group-item"
+          style="
+            background-color: #eaeae8;
+            color: #1b3146;
+            border-radius: 5px;
+            border: 1px solid #1b3146;
+          "
+        >
           <a class="nav-link active" aria-current="page" (click)="signUp()"
             >Sign-Up</a
           >
         </li>
-        <li *ngIf="!isAuthenticated" class="nav-item list-group-item"style="background-color: #EAEAE8;color: #1b3146;border-radius: 5px;border: 1px solid #1b3146;" >
+        <li
+          *ngIf="!isAuthenticated"
+          class="nav-item list-group-item"
+          style="
+            background-color: #eaeae8;
+            color: #1b3146;
+            border-radius: 5px;
+            border: 1px solid #1b3146;
+          "
+        >
           <a class="nav-link active" aria-current="page" (click)="login()">
             Login
           </a>
         </li>
 
-        <li *ngIf="isAuthenticated" class="nav-item list-group-item ml-auto" style="background-color: #EAEAE8;color: #1b3146;border-radius: 5px;border: 1px solid #1b3146;">
+        <li
+          *ngIf="isAuthenticated"
+          class="nav-item list-group-item ml-auto"
+          style="
+            background-color: #eaeae8;
+            color: #1b3146;
+            border-radius: 5px;
+            border: 1px solid #1b3146;
+          "
+        >
           <a class="nav-link" aria-current="page" (click)="onLogout()"
             >Logout</a
           >
