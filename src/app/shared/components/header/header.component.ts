@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private routeSub = new Subscription();
   dittis: Ditti[] = [];
   previousDitti;
+  isHome;
   currentLocation;
 
   constructor(
@@ -28,11 +29,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ) {}
   ngOnInit() {
     this.router.events.subscribe((val) => {
+      console.log(val);
       if (val instanceof RoutesRecognized) {
         if (val.url == '/') {
-          this.currentLocation = true;
+          console.log(val.url);
+          this.isHome = true;
         } else {
-          this.currentLocation = false;
+          this.isHome = false;
+          this.currentLocation = val.url.split('/')[2];
+          console.log('Current Location');
+          console.log(this.currentLocation);
         }
       }
     });
