@@ -1,4 +1,7 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" style="display: block;flex-shrink: 0;">
+<nav
+  class="navbar navbar-expand-lg bg-body-tertiary sticky-top"
+  style="display: block; flex-shrink: 0; min-width: max-content"
+>
   <div class="container-fluid d-flex header">
     <a class="navbar-brand" id="home" style="cursor: pointer"
       ><img
@@ -18,7 +21,11 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse " id="navbarSupportedContent" style="max-height: 100%;">
+    <div
+      class="collapse navbar-collapse"
+      id="navbarSupportedContent"
+      style="max-height: 100%"
+    >
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li *ngIf="!isHome" class="nav-item">
           <a
@@ -30,13 +37,15 @@
           >
         </li>
 
-        <ul class="list-group py-0" style="flex-direction: row;flex-shrink: 0;">
+        <ul class="list-group py-0" style="flex-direction: row; flex-shrink: 0">
           <li
             class="list-group-item mx-1 text-align-center"
             *ngFor="let ditti of dittis"
             style="
               border-radius: 5px;
               border: 1px solid #1b3146;
+              border-bottom-style: none;
+              margin-bottom: 0;
               color: #1b3146;
               font-size: 22px;
             "
@@ -48,12 +57,15 @@
         </ul>
       </ul>
 
-      <ul class="list-group nav-item mx-2" style="flex-direction: row;position:inherit">
+      <ul
+        class="auth list-group nav-item mx-2"
+        style="flex-direction: row; position: inherit"
+      >
         <li
           *ngIf="!isAuthenticated"
-          class="nav-item list-group-item"
+          class="nav-item list-group-item auth"
           style="
-            background-color: #eaeae8;
+            background-color: #84c7da;
             color: #1b3146;
             border-radius: 5px;
             border: 1px solid #1b3146;
@@ -65,9 +77,9 @@
         </li>
         <li
           *ngIf="!isAuthenticated"
-          class="nav-item list-group-item"
+          class="nav-item list-group-item auth"
           style="
-            background-color: #eaeae8;
+            background-color: #84c7da;
             color: #1b3146;
             border-radius: 5px;
             border: 1px solid #1b3146;
@@ -77,12 +89,19 @@
             Login
           </a>
         </li>
+        <li
+          *ngIf="isAuthenticated"
+          class="list-group-item"
+          style="background-color: #5e8d9b; color: #1b3146;border: none;font-size: 26px;"
+        >
+          Welcome, {{userEmail}}!
+        </li>
 
         <li
           *ngIf="isAuthenticated"
           class="nav-item list-group-item ml-auto"
           style="
-            background-color: #eaeae8;
+            background-color: #84c7da;
             color: #1b3146;
             border-radius: 5px;
             border: 1px solid #1b3146;
