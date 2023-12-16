@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" style="display: block;">
+<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" style="display: block;flex-shrink: 0;">
   <div class="container-fluid d-flex header">
     <a class="navbar-brand" id="home" style="cursor: pointer"
       ><img
@@ -48,7 +48,7 @@
         </ul>
       </ul>
 
-      <ul class="list-group nav-item mx-2" style="flex-direction: row;">
+      <ul class="list-group nav-item mx-2" style="flex-direction: row;position:inherit">
         <li
           *ngIf="!isAuthenticated"
           class="nav-item list-group-item"

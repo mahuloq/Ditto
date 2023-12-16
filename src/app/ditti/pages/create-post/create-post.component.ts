@@ -38,6 +38,8 @@ export class CreatePostComponent implements OnInit {
   }
   onSubmit() {
     console.log(this.index);
+    const timestamp = new Date().toISOString();
+    console.log(timestamp);
     const newPost: Post = { ...this.createPostForm.value };
     console.log(newPost);
     const postIndex = this.dittiService.addPost(newPost, this.index);
