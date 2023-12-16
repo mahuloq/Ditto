@@ -6,6 +6,7 @@ import { Post } from 'app/shared/post.model';
 import { DittiService } from 'app/shared/ditti-service.service';
 import { Router, RoutesRecognized } from '@angular/router';
 import { Ditti } from 'app/shared/ditti.model';
+import { AuthService } from 'app/auth/auth.service';
 
 @Component({
   selector: 'app-view-posts',
@@ -15,11 +16,12 @@ import { Ditti } from 'app/shared/ditti.model';
 export class ViewPostsComponent implements OnInit {
   post: Post;
   postIndex: number = null;
+ 
 
   dittiIndex: number = null;
   dittiContent: Ditti;
 
-  constructor(private dittiService: DittiService, private router: Router) {}
+  constructor(private dittiService: DittiService, private router: Router,private authService:AuthService) {}
 
   ngOnInit(): void {
     setTimeout(() => {

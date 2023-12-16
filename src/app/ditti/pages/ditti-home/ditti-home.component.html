@@ -1,14 +1,16 @@
 <div>
   <ul
     class="list-group"
-    style="align-items: left; justify-content: space-evenly"
+    style="align-items: left; justify-content: space-evenly;padding-left: 25px;padding-top: 5px; "
   >
     <li
       class="list-group-item"
       (click)="navigate(x)"
       *ngFor="let posts of dittis.posts; let x = index"
+      style="color:#5e8d9b"
+
     >
-      <p style="padding-left: 25px">
+      <p style="padding-left: 10px">
         <img src="{{ posts.image }}" alt="" /> {{ posts.title }}
       </p>
     </li>
