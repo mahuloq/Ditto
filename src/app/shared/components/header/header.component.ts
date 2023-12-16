@@ -13,6 +13,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+  userEmail: string | null;
   isAuthenticated = false;
   private userSub: Subscription;
   private routeSub = new Subscription();
@@ -38,6 +39,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         }
       }
     });
+    this.userEmail=this.authService.getEmail();
 
     this.userSub = this.authService.user.subscribe((user) => {
       this.isAuthenticated = !!user;
