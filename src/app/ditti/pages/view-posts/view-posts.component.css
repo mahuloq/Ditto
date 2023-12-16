@@ -2,3 +2,41 @@
   min-height: 100vh;
 }
 
+.item {
+  margin-right: 20px;
+  font-size: x-small;
+}
+
+.date {
+  color: gray;
+}
+
+.commentBox {
+  margin-left: 40px;
+  display: block;
+
+  line-height: 19px;
+  margin-bottom: 0;
+  color: #30659b !important;
+  resize: none;
+}
+
+::placeholder {
+  text-align: center;
+  font-style: italic;
+  font-size: 2em;
+  line-height: 90px;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder {
+  text-align: center;
+}
+
+.commentBtn {
+  margin-left: 860px;
+  margin-top: 10px;
+}
