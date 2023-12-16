@@ -8,7 +8,9 @@
       (click)="navigate(x)"
       *ngFor="let posts of dittis.posts; let x = index"
     >
-      <p>{{ posts.title }}</p>
+      <p style="padding-left: 25px">
+        <img src="{{ posts.image }}" alt="" /> {{ posts.title }}
+      </p>
     </li>
   </ul>
 </div>

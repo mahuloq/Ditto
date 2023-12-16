@@ -5,9 +5,11 @@
   >
     <li class="list-group-item" *ngFor="let ditti of dittis; let i = index">
       <a *ngFor="let posts of ditti.posts; let x = index">
+
         <p (click)="navigate(i, x)" style="padding-left: 25px;color:#1b3146">
           <img src="{{ posts.image }}" alt="photo" style="margin-right: 10px;;" />{{ posts.title }}
         </p>
+
       </a>
       <!-- <a class="nav-link">{{ ditti.name }} {{ ditti.description }}</a> -->
     </li>

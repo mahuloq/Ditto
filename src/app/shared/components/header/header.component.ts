@@ -29,16 +29,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ) {}
   ngOnInit() {
     this.router.events.subscribe((val) => {
-      console.log(val);
       if (val instanceof RoutesRecognized) {
         if (val.url == '/') {
-          console.log(val.url);
           this.isHome = true;
         } else {
           this.isHome = false;
           this.currentLocation = val.url.split('/')[2];
-          console.log('Current Location');
-          console.log(this.currentLocation);
         }
       }
     });
