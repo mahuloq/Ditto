@@ -7,21 +7,28 @@
 .sidebar-opener {
   cursor: pointer;
   position: absolute;
-  top: 80px;
+  top: 100px;
   right: 2vw;
   color: black;
   width: 50px;
 }
 
-.sidebar-slider {
+.container {
   position: fixed;
-  top: 100px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  top: 220px;
   right: 0;
   bottom: 0;
+
+  width: 300px;
+}
+
+.sidebar-slider {
   background-color: #ff4455;
   transform: translateX(100%);
   transition: ease-in-out 300ms transform;
-  width: 300px;
 }
 
 .sidebar-slider.sidebar-slide-in {
@@ -48,9 +55,6 @@
   padding: 16px;
 }
 
-.sidebar-divs {
-  margin-bottom: 150px;
-}
-.dittiName {
-  padding-top: 20px;
+.sidebar-description {
+  margin-top: 20px;
 }
