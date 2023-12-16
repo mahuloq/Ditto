@@ -1,14 +1,16 @@
 <div>
   <ul
     class="list-group"
-    style="text-align: center; justify-content: space-evenly"
+    style="text-align: left; justify-content: space-evenly"
   >
     <li
       class="list-group-item"
       (click)="navigate(x)"
       *ngFor="let posts of dittis.posts; let x = index"
     >
-      <p>{{ posts.title }}</p>
+      <p style="padding-left: 25px">
+        <img src="{{ posts.image }}" alt="" /> {{ posts.title }}
+      </p>
     </li>
   </ul>
 </div>
