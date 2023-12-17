@@ -1,11 +1,13 @@
 .list-group-item:hover{
   background-color: rgb(183, 199, 201);
 }
-.nav-link auth:hover
+.auth:hover
 {
-  background-color: whitesmoke;
+  background-color: rgb(23, 170, 214);
 }
 .header-body{
   width: 99vw;
   overflow: hidden;
 }
+
+

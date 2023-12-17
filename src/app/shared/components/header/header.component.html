@@ -52,7 +52,7 @@
                 margin-bottom: 0;
                 color: #1b3146;
                 font-size: 22px;
-               
+
               "
             >
               <a class="nav-link" (click)="navigateToDitti(ditti.name)">{{
@@ -64,17 +64,21 @@
 
         <ul
           class="auth list-group nav-item mx-2"
-          style="flex-direction: row; position: inherit"
+          style="flex-direction: row; position: inherit;"
         >
           <li
             *ngIf="!isAuthenticated"
-            class="nav-item list-group-item auth"
+            class="nav-item list-group-item"
             style="
               background-color: #84c7da;
+
               color: #1b3146;
               border-radius: 5px;
               border: 1px solid #1b3146;
-            "
+              margin-right: 5px;
+              font-weight: 800;
+              "
+
           >
             <a class="nav-link active" aria-current="page" (click)="signUp()"
               >Sign-Up</a
@@ -82,12 +86,13 @@
           </li>
           <li
             *ngIf="!isAuthenticated"
-            class="nav-item list-group-item auth"
+            class="nav-item list-group-item"
             style="
               background-color: #84c7da;
               color: #1b3146;
               border-radius: 5px;
               border: 1px solid #1b3146;
+              font-weight: 800;
             "
           >
             <a class="nav-link active" aria-current="page" (click)="login()">
@@ -109,7 +114,7 @@
 
           <li
             *ngIf="isAuthenticated"
-            class="nav-item list-group-item ml-auto"
+            class="nav-item list-group-item ml-auto auth"
             style="
               background-color: #84c7da;
               color: #1b3146;
