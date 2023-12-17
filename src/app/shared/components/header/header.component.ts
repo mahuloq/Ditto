@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     // setTimeout(this.authService.getEmail(),3000);
     // this.userEmail= setTimeout(this.authService.getEmail(),3000);
     this.userEmail= this.authService.getEmail();
-    
+
 
 
     this.userSub = this.authService.user.subscribe((user) => {
@@ -86,5 +86,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   navigateToDitti(dittiName: string) {
     this.previousDitti = dittiName;
     this.router.navigate(['/ditti', dittiName]);
+  }
+  makeDitti() {
+    this.router.navigate(['./make-ditti'])
   }
 }
