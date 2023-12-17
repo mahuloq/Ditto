@@ -10,6 +10,7 @@ import { AuthService } from 'app/auth/auth.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Comments } from 'app/shared/posts.model';
 import { DataStorageService } from 'app/shared/data-storage.service';
+import { eventListeners } from '@popperjs/core';
 
 @Component({
   selector: 'app-view-posts',
@@ -26,6 +27,7 @@ export class ViewPostsComponent implements OnInit {
   dittiContent: Ditti;
 
   commentUserName;
+  collapsed = false;
 
   constructor(
     private dittiService: DittiService,
@@ -85,5 +87,16 @@ export class ViewPostsComponent implements OnInit {
     newComment.username = this.commentUserName;
     this.dittiService.addComment(newComment);
     this.dataService.saveDitti();
+  }
+
+  switchComment(i) {
+    const test = document.getElementById(i);
+    if (test.style.display == 'none') {
+      test.style.display = 'block';
+      // test.classList.remove('show');
+    } else {
+      test.style.display = 'none';
+      // test.classList.add('show');
+    }
   }
 }

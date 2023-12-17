@@ -48,9 +48,20 @@
   </div>
   <hr />
   <div class="comment-section">
-    <div class="singleComment" *ngFor="let comment of post.comments">
-      <p class="username">username</p>
-      <p class="comment-text">Test Comment</p>
+    <div
+      class="singleComment"
+      *ngFor="let comment of post.comments; let i = index"
+    >
+      <p class="username">
+        <span class="username" (click)="switchComment(i)">
+          <span *ngIf="!collapsed" class="collapsed username">[-] </span>
+          <span *ngIf="collapsed" class="open username">[+] </span>
+        </span>
+        <span class="username">{{ comment.username }}</span>
+      </p>
+      <p class="comment-text" id="{{ i }}">
+        {{ comment.comment }}
+      </p>
     </div>
   </div>
 </div>
