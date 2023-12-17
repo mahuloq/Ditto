@@ -1,3 +1,5 @@
+import { Comments } from './posts.model';
+
 export class Post {
   constructor(
     public title: string,
@@ -5,6 +7,6 @@ export class Post {
     public image: string,
     public upvotes?: number,
     public downvotes?: number,
-    public comments?: Comment[]
+    public comments?: Comments[]
   ) {}
 }

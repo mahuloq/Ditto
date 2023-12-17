@@ -17,7 +17,12 @@ export class DittiHomeComponent {
   commentSelected = new BehaviorSubject<Post>(null);
   indexSelected = new BehaviorSubject<number>(null);
 
-  constructor(private router: Router, private dittiService: DittiService) {}
+  constructor(
+    private mainDitti: DittiComponent,
+    private route: ActivatedRoute,
+    private router: Router,
+    private dittiService: DittiService
+  ) {}
 
   ngOnInit(): void {
     this.dittiService.dittiIndex.subscribe((data) => {
@@ -34,7 +39,11 @@ export class DittiHomeComponent {
 
     this.dittiService.postIndex.next(this.index);
     console.log(this.index);
+    this.dittiService.saveInfo(this.index, 'currentPostIndex');
+
     this.dittiService.postContent.next(this.dittis.posts[x]);
+    this.dittiService.saveInfo(this.dittis.posts[x], 'currentPost');
+
     console.log(this.dittis.posts[x]);
     this.router.navigate(['/ditti', this.dittis.name, 'comments', x, title]);
   }

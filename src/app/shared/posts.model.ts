@@ -4,6 +4,6 @@ export class Comments {
     public comment: string,
     public upvotes?: number,
     public downvotes?: number,
-    public comments?: Comment[]
+    public comments?: Comments[]
   ) {}
 }
