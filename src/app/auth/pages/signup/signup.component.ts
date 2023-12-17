@@ -75,4 +75,7 @@ export class SignupComponent {
     );
     signupForm.reset();
   }
+  onLogin() {
+    this.router.navigate(['./auth/login'])
+  }
 }
