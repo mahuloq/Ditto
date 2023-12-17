@@ -40,3 +40,19 @@
   margin-left: 860px;
   margin-top: 10px;
 }
+
+.username {
+  font-size: x-small;
+  margin-bottom: -3px;
+}
+.comment-section {
+  margin-left: 50px;
+  width: 60vw;
+}
+
+.hide {
+  display: none;
+}
+.open .username .show {
+  display: block;
+}

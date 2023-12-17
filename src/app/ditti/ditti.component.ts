@@ -59,8 +59,10 @@ export class DittiComponent implements OnInit {
           for (let i = 0; i < length; i++) {
             if (tempURL.toLowerCase() === this.allDittiNames[i].toLowerCase()) {
               this.dittiService.dittiIndex.next(i);
+              this.dittiService.saveInfo(i, 'currentDittiIndex');
 
               this.currentDitti = this.dittiService.dittiInfo(i);
+              this.dittiService.saveInfo(this.currentDitti, 'currentDitti');
               return this.dittiService.dittiContent.next(this.currentDitti);
             } else {
               if (i == length - 1) {
@@ -96,10 +98,13 @@ export class DittiComponent implements OnInit {
       }
     });
 
+    // gets a list of ditti names for the check if Ditti Exists
     setTimeout(() => {
       this.allDittiNames = this.dittiService.dittiNameGetter();
       console.log(this.allDittiNames);
     }, 75);
+
+    // Goes through the ditti names and checks if ditti Exits. If not, then runs redirect to 404, if it does, than navigates to page
 
     setTimeout(() => {
       var tempURL = this.router.url;
@@ -112,8 +117,10 @@ export class DittiComponent implements OnInit {
       for (let i = 0; i < length; i++) {
         if (tempURL.toLowerCase() === this.allDittiNames[i].toLowerCase()) {
           this.dittiService.dittiIndex.next(i);
+          this.dittiService.saveInfo(i, 'currentDittiIndex');
 
           this.currentDitti = this.dittiService.dittiInfo(i);
+          this.dittiService.saveInfo(this.currentDitti, 'currentDitti');
           return this.dittiService.dittiContent.next(this.currentDitti);
         } else {
           if (i == length - 1) {

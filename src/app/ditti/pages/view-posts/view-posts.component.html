@@ -31,18 +31,37 @@
       </p>
     </div>
     <hr />
-    <form action="">
+    <form [formGroup]="createCommentForm" (ngSubmit)="onSubmit()">
       <textarea
         placeholder="Want to add to the discussion? &#10; Post a comment"
-        class="commentBox"
-        name=""
-        id=""
+        class="commentBox form-control"
+        name="comment"
+        id="comment"
+        formControlName="comment"
         cols="80"
         rows="10"
       ></textarea>
-      <button class="btn btn-primary commentBtn" type="button">
+      <button class="btn btn-primary commentBtn" type="submit">
         Submit Comment
       </button>
     </form>
+  </div>
+  <hr />
+  <div class="comment-section">
+    <div
+      class="singleComment"
+      *ngFor="let comment of post.comments; let i = index"
+    >
+      <p class="username">
+        <span class="username" (click)="switchComment(i)">
+          <span *ngIf="!collapsed" class="collapsed username">[-] </span>
+          <span *ngIf="collapsed" class="open username">[+] </span>
+        </span>
+        <span class="username">{{ comment.username }}</span>
+      </p>
+      <p class="comment-text" id="{{ i }}">
+        {{ comment.comment }}
+      </p>
+    </div>
   </div>
 </div>
