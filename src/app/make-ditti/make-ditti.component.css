@@ -6,9 +6,9 @@
 .overlay {
   margin: auto;
   background-color: #84c7da;
-  width: 650px;
-  border: solid #1B3146 1px;
-  padding: 10px;
+  width: 850px;
+  border: solid #1B3146 2px;
+  padding: 80px;
   z-index: 3;
   border-radius: 25px;
   /* position: absolute; */
@@ -24,7 +24,7 @@
   color: #767978;
 }
 
-.headerS {
+.headers {
   text-align: center;
   color: #1B3146;
 }
