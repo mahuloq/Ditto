@@ -11,8 +11,9 @@
   *ngIf="displaySidebar == true"
   class="sidebar-slider container"
   [class.sidebar-slide-in]="sidebarShow"
+  style="margin-top:20px;margin-right:7px;width: 20%;"
 >
-  <div class="sidebar-close" (click)="sidebarShow = !sidebarShow">X</div>
+  <div class="sidebar-close"(click)="sidebarShow = !sidebarShow">X</div>
   <div class="sidebar-content">
     <h2 class="dittiName">{{ currentDitti.name }}</h2>
     <div
