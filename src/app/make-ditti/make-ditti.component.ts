@@ -75,7 +75,6 @@ export class MakeDittiComponent implements OnInit {
 
     var dittis = this.dittiService.getDittisLocal();
 
-    setTimeout(() => {});
     var length = dittis.length;
 
     for (let i = 0; i < length; i++) {
