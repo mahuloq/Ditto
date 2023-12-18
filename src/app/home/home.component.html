@@ -1,11 +1,15 @@
 <div>
   <ul
     class="list-group"
-    style="text-align:left; padding-left: 15px;padding-right: 15px; "
+    style="text-align: left; padding-left: 15px; padding-right: 15px"
   >
-    <li class="list-group-item" *ngFor="let ditti of dittis; let i = index">
+    <li class="list-group-item" *ngFor="let ditti of dittis; let i = index" >
       <a *ngFor="let posts of ditti.posts; let x = index">
-        <p (click)="navigate(i, x)" style="padding-left: 25px;"><img src="placeholder" alt="photo">{{posts.title }}</p>
+
+        <p (click)="navigate(i, x)" style="padding-left: 25px;color:#1b3146;font-size: 28px;">
+          <img src="{{ posts.image }}" alt="photo" style="margin-right: 10px;" />{{ posts.title }}
+        </p>
+
       </a>
       <!-- <a class="nav-link">{{ ditti.name }} {{ ditti.description }}</a> -->
     </li>

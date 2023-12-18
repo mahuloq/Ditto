@@ -39,7 +39,19 @@ export class AuthService {
   passwordResetEndPoint =
     'https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=';
 
+
+
+
   // user = new Subject<User>()
+getEmail() {
+  const userData = JSON.parse(localStorage.getItem('userData'));
+  return userData ? userData.email : null;
+  setTimeout(this.getEmail,3000);
+}
+
+
+
+
 
   signup(email: string, password: string) {
     return this.http

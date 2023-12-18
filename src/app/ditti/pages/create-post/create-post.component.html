@@ -7,9 +7,9 @@
     />
   </div>
   <div class="page">
-    <div class="overlay">
-      <div>
-        <h1 class="headers">Create a post</h1>
+    <div class="overlay" style="padding: 75px;font-weight: 700">
+
+        <h1 class="headers" style="font-weight: 700;">Create a post</h1>
         <hr />
         <form [formGroup]="createPostForm" (ngSubmit)="onSubmit()">
           <div class="formParts">
@@ -68,16 +68,18 @@
           <div class="row">
             <div class="col-cs-12">
               <button
-                class="btn btn-success"
+                class="btn btn-primary"
                 type="submit"
                 [disabled]="!createPostForm.valid"
+                style="padding: 15px;font-weight: 600;"
               >
                 Submit
               </button>
             </div>
           </div>
         </form>
-      </div>
+
+
     </div>
   </div>
 </div>

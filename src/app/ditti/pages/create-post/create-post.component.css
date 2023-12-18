@@ -5,11 +5,12 @@
 
 .overlay {
   margin: auto;
-
+  background-color: #84c7da;
   width: 650px;
-  border: solid #d2d4ba 1px;
+  border: solid #1B3146 1px;
   padding: 10px;
   z-index: 3;
+  border-radius: 25px;
   /* position: absolute; */
   /* top: 50%;
   left: 50%;
@@ -25,12 +26,12 @@
 
 .headers {
   text-align: center;
-  color: #c9dce8;
+  color: #1B3146;
 }
 
 .subHeader {
   font-weight: bold;
-  color: #c9dce8;
+  color: #1B3146;
 }
 
 .nsfw {
@@ -52,7 +53,7 @@
 }
 
 .page {
-  background-color: #1b1a1d;
+  background-color: #EAEAE8;
   min-height: 100vh;
   width: 100%;
   padding-top: 75px;
@@ -66,4 +67,12 @@ input {
 
 .box {
   display: flex;
+}
+.labelDescipt{
+  font-weight: 250;
+  color:#2e2e2c;
+}
+.formParts{
+  font: italic;
+  color: #eff2f5;
 }

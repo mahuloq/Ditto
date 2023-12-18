@@ -13,11 +13,13 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+  userEmail: any | null;
   isAuthenticated = false;
   private userSub: Subscription;
   private routeSub = new Subscription();
   dittis: Ditti[] = [];
   previousDitti;
+  isHome;
   currentLocation;
 
   constructor(
@@ -30,12 +32,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.router.events.subscribe((val) => {
       if (val instanceof RoutesRecognized) {
         if (val.url == '/') {
-          this.currentLocation = true;
+          this.isHome = true;
         } else {
-          this.currentLocation = false;
+          this.isHome = false;
+          this.currentLocation = val.url.split('/')[2];
         }
       }
     });
+    // setTimeout(this.authService.getEmail(),3000);
+    // this.userEmail= setTimeout(this.authService.getEmail(),3000);
+    this.userEmail= this.authService.getEmail();
+    
+
 
     this.userSub = this.authService.user.subscribe((user) => {
       this.isAuthenticated = !!user;

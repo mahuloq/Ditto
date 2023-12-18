@@ -9,7 +9,7 @@
 </div>
 <div
   *ngIf="displaySidebar == true"
-  class="sidebar-slider"
+  class="sidebar-slider container"
   [class.sidebar-slide-in]="sidebarShow"
 >
   <div class="sidebar-close" (click)="sidebarShow = !sidebarShow">X</div>
@@ -23,6 +23,6 @@
       Create Post
     </div>
 
-    <div class="sidebar-title">{{ currentDitti.description }}</div>
+    <div class="sidebar-description">{{ currentDitti.description }}</div>
   </div>
 </div>

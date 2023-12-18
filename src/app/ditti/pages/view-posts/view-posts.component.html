@@ -1,8 +1,67 @@
 <div>
   <div class="dittiPostContent">
-    <h1>{{ post.title }}</h1>
-    <p>{{ post.description }}</p>
+    <p
+      style="
+        padding-left: 80px;
+        padding-top: 5px;
+        font-weight: normal;
+        font-size: larger;
+        width: 70vw;
+        margin-bottom: -3px;
+      "
+    >
+      <img src="{{ post.image }}" alt="" />
+      {{ post.title }}
+    </p>
+    <div style="padding-left: 80px; display: flex">
+      <p class="item date">Datetime will go here</p>
+      <p class="item username">Username Here</p>
+    </div>
+    <div
+      style="
+        margin-left: 80px;
+        border: 1px solid #5e8d9b;
+        border-radius: 3px;
+        width: 70vw;
+        margin-bottom: 60px;
+      "
+    >
+      <p style="color: #5e8d9b; padding: 30px; font-size: 26px">
+        {{ post.description }}
+      </p>
+    </div>
+    <hr />
+    <form [formGroup]="createCommentForm" (ngSubmit)="onSubmit()">
+      <textarea
+        placeholder="Want to add to the discussion? &#10; Post a comment"
+        class="commentBox form-control"
+        name="comment"
+        id="comment"
+        formControlName="comment"
+        cols="80"
+        rows="10"
+      ></textarea>
+      <button class="btn btn-primary commentBtn" type="submit">
+        Submit Comment
+      </button>
+    </form>
   </div>
-
-  <p>Test View Post</p>
+  <hr />
+  <div class="comment-section">
+    <div
+      class="singleComment"
+      *ngFor="let comment of post.comments; let i = index"
+    >
+      <p class="username">
+        <span class="username" (click)="switchComment(i)">
+          <span *ngIf="!collapsed" class="collapsed username">[-] </span>
+          <span *ngIf="collapsed" class="open username">[+] </span>
+        </span>
+        <span class="username">{{ comment.username }}</span>
+      </p>
+      <p class="comment-text" id="{{ i }}">
+        {{ comment.comment }}
+      </p>
+    </div>
+  </div>
 </div>

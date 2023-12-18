@@ -3,13 +3,13 @@ import { Ditti } from './ditti.model';
 
 import { BehaviorSubject } from 'rxjs';
 import { Post } from './post.model';
+import { Comments } from './posts.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DittiService {
   dittiListChanged = new BehaviorSubject<Ditti[]>(null);
-
   dittisLoadedChanged = new BehaviorSubject<boolean>(null);
 
   dittiIndex = new BehaviorSubject<number>(null);
@@ -18,15 +18,19 @@ export class DittiService {
   postIndex = new BehaviorSubject<number>(null);
   postContent = new BehaviorSubject<Post>(null);
 
+  // Store Current Ditti Information.
   currentDitti: Ditti = null;
-
-  constructor() {}
+  currentDittiIndex: number;
+  currentPostSelected: Post;
+  currentPostIndex: number;
 
   dittiNames = [];
   dittisLoaded: boolean = false;
   allDittis: Ditti[] = [];
 
   authReturn = new BehaviorSubject<string>(null);
+
+  constructor() {}
 
   saveDitti(ditti: Ditti) {
     this.allDittis.push(ditti);
@@ -65,18 +69,46 @@ export class DittiService {
     return this.allDittis[i];
   }
 
-  addPost(data: Post, i) {
-    if (this.allDittis[i].posts) {
-      this.allDittis[i].posts.push(data);
+  addPost(data: Post, dittiIndex) {
+    if (this.allDittis[dittiIndex].posts) {
+      this.allDittis[dittiIndex].posts.push(data);
     } else {
-      this.allDittis[i].posts = [data];
+      this.allDittis[dittiIndex].posts = [data];
     }
 
-    console.log(this.allDittis[i]);
-    console.log(this.allDittis[i].posts);
+    console.log(this.allDittis[dittiIndex]);
+    console.log(this.allDittis[dittiIndex].posts);
+    return this.allDittis[dittiIndex].posts.length;
   }
 
-  updateIndex() {}
+  addComment(data: Comments, commentIndex?) {
+    if (
+      this.allDittis[this.currentDittiIndex].posts[this.currentPostIndex]
+        .comments
+    ) {
+      this.allDittis[this.currentDittiIndex].posts[
+        this.currentPostIndex
+      ].comments.push(data);
+    } else {
+      this.allDittis[this.currentDittiIndex].posts[
+        this.currentPostIndex
+      ].comments = [data];
+    }
+  }
 
-  updateDittiContent() {}
+  saveInfo(data, destination) {
+    if (destination == 'currentDitti') {
+      this.currentDitti = data;
+      console.log(this.currentDitti);
+    } else if (destination == 'currentDittiIndex') {
+      this.currentDittiIndex = data;
+      console.log(this.currentDittiIndex);
+    } else if (destination == 'currentPost') {
+      this.currentPostSelected = data;
+      console.log(this.currentPostSelected);
+    } else if (destination == 'currentPostIndex') {
+      this.currentPostIndex = data;
+      console.log(this.currentPostIndex);
+    }
+  }
 }
