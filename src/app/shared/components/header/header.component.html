@@ -2,10 +2,10 @@
 style="">
   <nav
     class="navbar navbar-expand-lg bg-body-tertiary sticky-top"
-    style="display: block; flex-shrink: 0;"
+    style="display: block; flex-shrink: 0;position: relative;"
   >
-    <div class="container-fluid d-flex header">
-      <a class="navbar-brand" id="home" style="cursor: pointer;"
+    <div class="container-fluid d-flex header" style="" >
+      <a class="navbar-brand" id="home" style="cursor: pointer;position: absolute;"
         ><img
           src="https://www.airsquirrels.com/hubfs/Logos/Ditto%20Logos/03%20Small/DittoTypeWhiteRGB_TighterCrop.png"
           (click)="navigate()"
@@ -40,6 +40,7 @@ style="">
           margin-right: 5px;
           font-weight: 800;
          text-wrap:nowrap;
+
           "
 
       >
@@ -65,7 +66,7 @@ style="">
 
           <ul
             class="list-group py-0"
-            style="flex-direction: row; flex-shrink: 0"
+            style="flex-direction: row; flex-shrink: 0;"
           >
             <li
               class="list-group-item mx-1 text-align-center dittis"
@@ -74,7 +75,7 @@ style="">
                 border-radius: 5px;
                 border: 1px solid #1b3146;
 
-                margin-bottom: 0;
+                padding: 0;
                 color: #1b3146;
                 font-size: 22px;
 
@@ -131,7 +132,8 @@ style="">
               background-color: #5e8d9b;
               color: #1b3146;
               border: none;
-              font-size: 26px;
+              font-size: 22px;
+              margin-right: 0;
             "
           >
             Welcome, {{ userEmail }}!
@@ -145,6 +147,7 @@ style="">
               color: #1b3146;
               border-radius: 5px;
               border: 1px solid #1b3146;
+
             "
           >
             <a class="nav-link" aria-current="page" (click)="onLogout()"
