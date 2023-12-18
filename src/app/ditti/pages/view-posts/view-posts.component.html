@@ -67,6 +67,13 @@
       <p class="comment-text" id="{{ i }}">
         {{ comment.comment }}
       </p>
+      <p
+        *ngIf="commentUserName == comment.username && commentUserName != null"
+        class="deleteButton"
+        (click)="deleteComment(i)"
+      >
+        Delete
+      </p>
     </div>
   </div>
 </div>

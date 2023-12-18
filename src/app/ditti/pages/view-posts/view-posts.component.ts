@@ -97,6 +97,11 @@ export class ViewPostsComponent implements OnInit {
     this.dataService.saveDitti();
   }
 
+  deleteComment(i) {
+    this.dittiService.deleteComment(i);
+    this.dataService.saveDitti();
+  }
+
   switchComment(i) {
     const test = document.getElementById(i);
     const btn = document.getElementById(i + 'button');
