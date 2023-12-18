@@ -31,20 +31,26 @@
       </p>
     </div>
     <hr />
-    <form [formGroup]="createCommentForm" (ngSubmit)="onSubmit()">
-      <textarea
-        placeholder="Want to add to the discussion? &#10; Post a comment"
-        class="commentBox form-control"
-        name="comment"
-        id="comment"
-        formControlName="comment"
-        cols="80"
-        rows="10"
-      ></textarea>
-      <button class="btn btn-primary commentBtn" type="submit">
-        Submit Comment
-      </button>
-    </form>
+    <div class="commentForm">
+      <form
+        [formGroup]="createCommentForm"
+        (ngSubmit)="onSubmit()"
+        style="padding: 35px; padding-right: 25%"
+      >
+        <textarea
+          placeholder="Want to add to the discussion? &#10; Post a comment"
+          class="commentBox form-control"
+          name="comment"
+          id="comment"
+          formControlName="comment"
+          cols="80"
+          rows="10"
+        ></textarea>
+        <button class="btn btn-primary commentBtn" type="submit">
+          Submit Comment
+        </button>
+      </form>
+    </div>
   </div>
   <hr />
   <div class="comment-section">
@@ -54,13 +60,19 @@
     >
       <p class="username">
         <span class="username" (click)="switchComment(i)">
-          <span *ngIf="!collapsed" class="collapsed username">[-] </span>
-          <span *ngIf="collapsed" class="open username">[+] </span>
+          <span id="{{ i + 'button' }}" class="collapsed username">[-] </span>
         </span>
         <span class="username">{{ comment.username }}</span>
       </p>
       <p class="comment-text" id="{{ i }}">
         {{ comment.comment }}
+      </p>
+      <p
+        *ngIf="commentUserName == comment.username && commentUserName != null"
+        class="deleteButton"
+        (click)="deleteComment(i)"
+      >
+        Delete
       </p>
     </div>
   </div>

@@ -44,11 +44,13 @@ export class DittiComponent implements OnInit {
     this.router.events.subscribe((val) => {
       if (val instanceof RoutesRecognized) {
         setTimeout(() => {
+          // console.log('URL Ditti Comp Ran')
           this.allDittiNames = this.dittiService.dittiNameGetter();
           console.log(this.allDittiNames);
         }, 75);
 
         setTimeout(() => {
+          // console.log('URL Ditti Comp Ran 2')
           var tempURL = this.router.url;
           console.log(tempURL);
           tempURL = tempURL.split('/')[2];
@@ -81,7 +83,7 @@ export class DittiComponent implements OnInit {
     });
 
     //checks to see if data exists to navigate to, if not 404, unless its auth
-
+    // console.log('Ditti Comp Ran')
     this.dittiWasFound.subscribe((data) => {
       if (this.router.url.includes('/auth')) {
         var urlReturn = this.router.url.split('/')[2];
@@ -100,6 +102,7 @@ export class DittiComponent implements OnInit {
 
     // gets a list of ditti names for the check if Ditti Exists
     setTimeout(() => {
+      // console.log('Ditti Comp Ran 2')
       this.allDittiNames = this.dittiService.dittiNameGetter();
       console.log(this.allDittiNames);
     }, 75);
@@ -107,6 +110,7 @@ export class DittiComponent implements OnInit {
     // Goes through the ditti names and checks if ditti Exits. If not, then runs redirect to 404, if it does, than navigates to page
 
     setTimeout(() => {
+      // console.log('Ditti Comp Ran')
       var tempURL = this.router.url;
       console.log(tempURL);
       tempURL = tempURL.split('/')[2];

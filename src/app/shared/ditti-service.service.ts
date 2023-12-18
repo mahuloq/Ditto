@@ -95,6 +95,13 @@ export class DittiService {
       ].comments = [data];
     }
   }
+  deleteComment(i) {
+    let arr =
+      this.allDittis[this.currentDittiIndex].posts[this.currentPostIndex]
+        .comments;
+
+    arr.splice(i, 1);
+  }
 
   saveInfo(data, destination) {
     if (destination == 'currentDitti') {
