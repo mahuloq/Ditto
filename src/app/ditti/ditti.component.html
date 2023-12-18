@@ -11,10 +11,11 @@
   *ngIf="displaySidebar == true"
   class="sidebar-slider container"
   [class.sidebar-slide-in]="sidebarShow"
+  style="margin-top:60px;margin-right:10px;width: 15%;"
 >
-  <div class="sidebar-close" (click)="sidebarShow = !sidebarShow">X</div>
+  <div class="sidebar-close"(click)="sidebarShow = !sidebarShow">X</div>
   <div class="sidebar-content">
-    <h2 class="dittiName">{{ currentDitti.name }}</h2>
+    <h2 class="dittiName" style="border: 1px solid black;">{{ currentDitti.name }}</h2>
     <div
       class="sidebar-divs"
       (click)="checkURL()"
