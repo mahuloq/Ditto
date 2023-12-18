@@ -66,7 +66,7 @@ export class ViewPostsComponent implements OnInit {
         this.post = this.dittiContent.posts[this.postIndex];
         this.dittiService.saveInfo(this.post, 'currentPost');
       }
-    }, 150);
+    }, 250);
 
     this.dittiService.postIndex.subscribe((data) => {
       this.postIndex = data;
@@ -80,23 +80,32 @@ export class ViewPostsComponent implements OnInit {
     this.dittiService.dittiContent.subscribe((data) => {
       this.dittiContent = data;
     });
+
+    this.postIndex = +this.router.url.split('/')[4];
+    this.dittiService.saveInfo(this.postIndex, 'currentPostIndex');
+
+    this.post = this.dittiContent.posts[this.postIndex];
+    this.dittiService.saveInfo(this.post, 'currentPost');
   }
 
   onSubmit() {
     var newComment: Comments = { ...this.createCommentForm.value };
+    console.log(newComment);
     newComment.username = this.commentUserName;
+    console.log(this.commentUserName);
     this.dittiService.addComment(newComment);
     this.dataService.saveDitti();
   }
 
   switchComment(i) {
     const test = document.getElementById(i);
+    const btn = document.getElementById(i + 'button');
     if (test.style.display == 'none') {
       test.style.display = 'block';
-      // test.classList.remove('show');
+      btn.innerHTML = '[-]';
     } else {
       test.style.display = 'none';
-      // test.classList.add('show');
+      btn.innerHTML = '[+]';
     }
   }
 }
