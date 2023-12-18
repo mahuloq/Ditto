@@ -40,10 +40,8 @@ export class DittiHomeComponent {
     this.dittiService.postIndex.next(this.index);
     console.log(this.index);
     this.dittiService.saveInfo(this.index, 'currentPostIndex');
-
     this.dittiService.postContent.next(this.dittis.posts[x]);
     this.dittiService.saveInfo(this.dittis.posts[x], 'currentPost');
-
     console.log(this.dittis.posts[x]);
     this.router.navigate(['/ditti', this.dittis.name, 'comments', x, title]);
   }
