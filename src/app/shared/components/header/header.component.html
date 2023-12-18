@@ -1,117 +1,157 @@
-<nav
-  class="navbar navbar-expand-lg bg-body-tertiary sticky-top"
-  style="display: block; flex-shrink: 0; min-width: max-content"
->
-  <div class="container-fluid d-flex header">
-    <a class="navbar-brand" id="home" style="cursor: pointer"
-      ><img
-        src="https://www.airsquirrels.com/hubfs/Logos/Ditto%20Logos/03%20Small/DittoTypeWhiteRGB_TighterCrop.png"
-        (click)="navigate()"
-        style="width: 125px"
-        id="home"
-    /></a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div
-      class="collapse navbar-collapse"
-      id="navbarSupportedContent"
-      style="max-height: 100%"
-    >
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li *ngIf="!isHome" class="nav-item">
-          <a
-            class="nav-link active"
-            aria-current="page"
-            id="dittiHome"
-            (click)="navigate()"
-            >{{ currentLocation }}</a
-          >
-        </li>
+<div class="header-body">
+  <nav
+    class="navbar navbar-expand-lg bg-body-tertiary sticky-top"
+    style="display: block; flex-shrink: 0; max-width: 100vw"
+  >
+    <div class="container-fluid d-flex header">
+      <a class="navbar-brand" id="home" style="cursor: pointer"
+        ><img
+          src="https://www.airsquirrels.com/hubfs/Logos/Ditto%20Logos/03%20Small/DittoTypeWhiteRGB_TighterCrop.png"
+          (click)="navigate()"
+          style="width: 125px"
+          id="home"
+      /></a>
 
-        <ul class="list-group py-0" style="flex-direction: row; flex-shrink: 0">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <ul
+      class="auth list-group nav-item mx-2"
+      style="flex-direction: row; position: inherit;"
+    >
+      <li
+
+        class="nav-item list-group-item"
+        style="
+          background-color: #84c7da;
+
+          color: #1b3146;
+          border-radius: 5px;
+          border: 1px solid #1b3146;
+          margin-right: 5px;
+          font-weight: 800;
+         text-wrap:nowrap;
+          "
+
+      >
+        <a class="nav-link active" aria-current="page" (click)="makeDitti()"
+          >Make Ditti</a
+        ></li> </ul>
+
+      <div
+        class="collapse navbar-collapse"
+        id="navbarSupportedContent"
+        style="max-height: 100%"
+      >
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li *ngIf="!isHome" class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              id="dittiHome"
+              (click)="navigate()"
+              >{{ currentLocation }}</a
+            >
+          </li>
+
+          <ul
+            class="list-group py-0"
+            style="flex-direction: row; flex-shrink: 0"
+          >
+            <li
+              class="list-group-item mx-1 text-align-center"
+              *ngFor="let ditti of dittis"
+              style="
+                border-radius: 5px;
+                border: 1px solid #1b3146;
+
+                margin-bottom: 0;
+                color: #1b3146;
+                font-size: 22px;
+
+              "
+            >
+              <a class="nav-link" (click)="navigateToDitti(ditti.name)">{{
+                ditti.name
+              }}</a>
+            </li>
+          </ul>
+        </ul>
+
+        <ul
+          class="auth list-group nav-item mx-2"
+          style="flex-direction: row; position: inherit;"
+        >
           <li
-            class="list-group-item mx-1 text-align-center"
-            *ngFor="let ditti of dittis"
+            *ngIf="!isAuthenticated"
+            class="nav-item list-group-item"
             style="
+              background-color: #84c7da;
+
+              color: #1b3146;
               border-radius: 5px;
               border: 1px solid #1b3146;
-              border-bottom-style: none;
-              margin-bottom: 0;
+              margin-right: 5px;
+              font-weight: 800;
+              "
+
+          >
+            <a class="nav-link active" aria-current="page" (click)="signUp()"
+              >Sign-Up</a
+            >
+          </li>
+          <li
+            *ngIf="!isAuthenticated"
+            class="nav-item list-group-item"
+            style="
+              background-color: #84c7da;
               color: #1b3146;
-              font-size: 22px;
+              border-radius: 5px;
+              border: 1px solid #1b3146;
+              font-weight: 800;
             "
           >
-            <a class="nav-link" (click)="navigateToDitti(ditti.name)">{{
-              ditti.name
-            }}</a>
+            <a class="nav-link active" aria-current="page" (click)="login()">
+              Login
+            </a>
+          </li>
+          <li
+            *ngIf="isAuthenticated"
+            class="list-group-item"
+            style="
+              background-color: #5e8d9b;
+              color: #1b3146;
+              border: none;
+              font-size: 26px;
+            "
+          >
+            Welcome, {{ userEmail }}!
+          </li>
+
+          <li
+            *ngIf="isAuthenticated"
+            class="nav-item list-group-item ml-auto auth"
+            style="
+              background-color: #84c7da;
+              color: #1b3146;
+              border-radius: 5px;
+              border: 1px solid #1b3146;
+            "
+          >
+            <a class="nav-link" aria-current="page" (click)="onLogout()"
+              >Logout</a
+            >
           </li>
         </ul>
-      </ul>
-
-      <ul
-        class="auth list-group nav-item mx-2"
-        style="flex-direction: row; position: inherit"
-      >
-        <li
-          *ngIf="!isAuthenticated"
-          class="nav-item list-group-item auth"
-          style="
-            background-color: #84c7da;
-            color: #1b3146;
-            border-radius: 5px;
-            border: 1px solid #1b3146;
-          "
-        >
-          <a class="nav-link active" aria-current="page" (click)="signUp()"
-            >Sign-Up</a
-          >
-        </li>
-        <li
-          *ngIf="!isAuthenticated"
-          class="nav-item list-group-item auth"
-          style="
-            background-color: #84c7da;
-            color: #1b3146;
-            border-radius: 5px;
-            border: 1px solid #1b3146;
-          "
-        >
-          <a class="nav-link active" aria-current="page" (click)="login()">
-            Login
-          </a>
-        </li>
-        <li
-          *ngIf="isAuthenticated"
-          class="list-group-item"
-          style="background-color: #5e8d9b; color: #1b3146;border: none;font-size: 26px;"
-        >
-          Welcome, {{userEmail}}!
-        </li>
-
-        <li
-          *ngIf="isAuthenticated"
-          class="nav-item list-group-item ml-auto"
-          style="
-            background-color: #84c7da;
-            color: #1b3146;
-            border-radius: 5px;
-            border: 1px solid #1b3146;
-          "
-        >
-          <a class="nav-link" aria-current="page" (click)="onLogout()"
-            >Logout</a
-          >
-        </li>
-      </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</div>
