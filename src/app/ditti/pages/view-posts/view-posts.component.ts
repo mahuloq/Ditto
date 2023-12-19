@@ -95,11 +95,25 @@ export class ViewPostsComponent implements OnInit {
     console.log(this.commentUserName);
     this.dittiService.addComment(newComment);
     this.dataService.saveDitti();
+    this.createCommentForm.reset();
   }
 
   deleteComment(i) {
-    this.dittiService.deleteComment(i);
-    this.dataService.saveDitti();
+    if (confirm('Are you sure you want to delete this comment?')) {
+      this.dittiService.deleteComment(i);
+      this.dataService.saveDitti();
+    } else {
+      return;
+    }
+  }
+
+  deletePost() {
+    if (confirm('Are you sure you want to delete this Post?')) {
+      this.dittiService.deletePost();
+      this.dataService.saveDitti();
+    } else {
+      return;
+    }
   }
 
   switchComment(i) {

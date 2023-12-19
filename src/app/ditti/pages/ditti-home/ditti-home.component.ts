@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DittiComponent } from 'app/ditti/ditti.component';
+import { DataStorageService } from 'app/shared/data-storage.service';
 import { DittiService } from 'app/shared/ditti-service.service';
 import { Ditti } from 'app/shared/ditti.model';
 import { Post } from 'app/shared/post.model';
@@ -18,8 +19,7 @@ export class DittiHomeComponent {
   indexSelected = new BehaviorSubject<number>(null);
 
   constructor(
-    private mainDitti: DittiComponent,
-    private route: ActivatedRoute,
+    private dataService: DataStorageService,
     private router: Router,
     private dittiService: DittiService
   ) {}

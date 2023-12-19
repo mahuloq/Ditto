@@ -103,6 +103,12 @@ export class DittiService {
     arr.splice(i, 1);
   }
 
+  deletePost() {
+    let arr =
+      this.allDittis[this.currentDittiIndex].posts[this.currentPostIndex];
+    console.log(arr);
+  }
+
   saveInfo(data, destination) {
     if (destination == 'currentDitti') {
       this.currentDitti = data;

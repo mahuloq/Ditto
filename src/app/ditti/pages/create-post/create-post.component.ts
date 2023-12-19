@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'app/auth/auth.service';
 import { DittiComponent } from 'app/ditti/ditti.component';
 import { DataStorageService } from 'app/shared/data-storage.service';
 import { DittiService } from 'app/shared/ditti-service.service';
@@ -16,14 +17,17 @@ export class CreatePostComponent implements OnInit {
   displaySidebar = true;
   index: number;
   dittiName;
+  userName;
   constructor(
     private router: Router,
     private mainDitti: DittiComponent,
     private dittiService: DittiService,
-    private dataService: DataStorageService
+    private dataService: DataStorageService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
+    this.userName = this.authService.getEmail();
     this.dittiName = this.router.url.split('/')[2];
 
     this.dittiService.dittiIndex.subscribe((data) => {
@@ -40,8 +44,8 @@ export class CreatePostComponent implements OnInit {
     console.log(this.index);
     const timestamp = new Date().toISOString();
     console.log(timestamp);
-    const newPost: Post = { ...this.createPostForm.value };
-    console.log(newPost);
+    let newPost: Post = { ...this.createPostForm.value };
+    newPost.username = this.authService.getEmail();
     const postIndex = this.dittiService.addPost(newPost, this.index);
     this.dataService.saveDitti();
     const url = `/ditti/${
