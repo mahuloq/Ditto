@@ -1,1 +1,34 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300&family=Nunito:wght@300&family=Open+Sans:wght@500&family=Quicksand:wght@400;500&family=Rubik:wght@500&family=Ubuntu:wght@300&display=swap');
+
+/* CSS HEX
+--jasper: #c05746ff;
+--olivine: #adc698ff;
+--tea-green: #d0e3c4ff;  foreground?
+--white: #ffffffff;  back background
+--violet-jtc: #503047ff;
+ */
+
+*{
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+
+}
+
+
+
+li{
+  cursor: pointer;
+}
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  color: rgb(241, 233, 233);
+  font-size: 22px;
+  padding: 15px;
+  height: 100%;
+  background-color:#5e8d9b;
+}

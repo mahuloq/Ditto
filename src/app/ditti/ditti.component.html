@@ -1,1 +1,29 @@
-<p>ditti works!</p>
+<router-outlet></router-outlet>
+<!-- Sidebar with title, description and rules?-->
+<div
+  *ngIf="displaySidebar == true"
+  class="sidebar-opener"
+  (click)="sidebarShow = !sidebarShow"
+>
+  Sidebar
+</div>
+<div
+  *ngIf="displaySidebar == true"
+  class="sidebar-slider container"
+  [class.sidebar-slide-in]="sidebarShow"
+  style="margin-top:20px;margin-right:7px;width: 20%;"
+>
+  <div class="sidebar-close"(click)="sidebarShow = !sidebarShow">X</div>
+  <div class="sidebar-content">
+    <h2 class="dittiName">{{ currentDitti.name }}</h2>
+    <button
+      class="sidebar-btn"
+      (click)="checkURL()"
+      routerLink="{{ currentDitti.name }}/createPost"
+    >
+      Create Post
+    </button>
+
+    <div class="sidebar-description">{{ currentDitti.description }}</div>
+  </div>
+</div>

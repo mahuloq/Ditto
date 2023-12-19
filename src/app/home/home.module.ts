@@ -5,13 +5,14 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 
 
+import { HttpClientModule } from '@angular/common/http';
+
+
+
+
 @NgModule({
-  declarations: [
-    HomeComponent
-  ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule
-  ]
+  declarations: [HomeComponent],
+  imports: [CommonModule, HomeRoutingModule, SharedModule, HttpClientModule],
+
 })
 export class HomeModule { }

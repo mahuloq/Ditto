@@ -1,0 +1,85 @@
+<div class="box">
+  <div class="sidebar position">
+    <img
+      class="sidebar"
+      src="https://i.imgur.com/YfV2doL.png"
+      alt="whimsical"
+    />
+  </div>
+  <div class="page">
+    <div class="overlay" style="padding: 75px;font-weight: 700;">
+
+        <h1 class="headers" style="font-weight: 700;">Create a post</h1>
+        <hr />
+        <form [formGroup]="createPostForm" (ngSubmit)="onSubmit()">
+          <div class="formParts">
+            <label class="subHeader" for="title"
+              >Title
+              <span class="labelDescipt"
+                ><br />
+                Whats your post about.</span
+              ></label
+            >
+            <br />
+            <input
+              type="text"
+              id="title"
+              name="title"
+              formControlName="title"
+              class="form-control"
+              placeholder="Title of Post!"
+            />
+          </div>
+          <div class="formParts">
+            <label class="subHeader" for="desciption"
+              >Description
+              <span class="labelDescipt"
+                ><br />
+                Tell us what you are thinking.
+              </span></label
+            >
+            <br />
+            <textarea
+              name="description"
+              id="description"
+              cols="30"
+              rows="10"
+              formControlName="description"
+              class="form-control"
+              placeholder="Enter Description Here"
+            ></textarea>
+          </div>
+          <div>
+            <label class="subHeader" for="image"
+              >Image<span class="labelDescipt"
+                ><br />
+                Do you want to include an image?
+              </span></label
+            >
+            <input
+              type="url"
+              id="image"
+              name="image"
+              formControlName="image"
+              class="form-control"
+              placeholder="Image Url"
+            />
+          </div>
+          <div class="row">
+            <div class="col-cs-12">
+              <button
+                class="btn btn-primary"
+                type="submit"
+                [disabled]="!createPostForm.valid"
+                style="padding: 15px;font-weight: 600;"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </form>
+
+
+    </div>
+  </div>
+</div>

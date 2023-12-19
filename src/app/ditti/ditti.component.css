@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+  max-height: 75%;
+
+}
+
+.sidebar-opener {
+  cursor: pointer;
+  position: absolute;
+  top: 80px;
+  right: 2vw;
+  color: black;
+  width: 50px;
+}
+
+.sidebar-slider {
+  position: fixed;
+  top: 100px;
+  right: 0;
+  bottom: 0;
+  background-color: #84c7da;
+
+  transform: translateX(100%);
+  transition: ease-in-out 300ms transform;
+  width: 350px;
+  border-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+.sidebar-slider.sidebar-slide-in {
+  transform: translateX(0%);
+  transition: ease-in-out 600ms transform;
+}
+
+.sidebar-close {
+  position: fixed;
+  top: 0;
+  right: 0;
+  color: white;
+  cursor: pointer;
+  padding: 16px;
+}
+
+.sidebar-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  color: #1b3146;
+  font-size: 22px;
+  padding: 16px;
+
+}
+
+.sidebar-btn {
+  margin-bottom:150px;
+  margin-top: 0px;
+  font-size: 20px;
+ cursor: pointer ;
+  padding: 15px;
+  text-align: center;
+  padding-top: 15px;
+  border-radius: 25px;
+  color: black;
+}
+.dittiName {
+  padding-left: 20px;
+  margin-top: 5px;
+  padding-top: 5px;
+  padding-bottom: 15px;
+}
+h2{
+  font-weight: 600;
+
+}

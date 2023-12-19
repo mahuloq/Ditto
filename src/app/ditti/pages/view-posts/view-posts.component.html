@@ -1,0 +1,93 @@
+<div>
+  <div class="dittiPostContent">
+    <p
+      style="
+        padding-left: 80px;
+        padding-top: 5px;
+
+        width: 60vw;
+        margin-bottom: -3px;
+      "
+    >
+      <img class="postImg" src="{{ post.image }}" alt="" />
+      {{ post.title }}
+    </p>
+    <div style="padding-left: 80px; display: flex">
+      <p class="item date">Datetime will go here</p>
+      <p class="item username">
+        {{ post.username ? post.username : "Username Here" }}
+      </p>
+      <p
+        *ngIf="
+          (commentUserName == post.username && commentUserName != null) ||
+          commentUserName == 'admin@ditti.com'
+        "
+        class="deleteButton postDelete"
+        (click)="deletePost()"
+      >
+        Delete
+      </p>
+    </div>
+    <div
+      style="
+        margin-left: 80px;
+        border: 1px solid #5e8d9b;
+        border-radius: 3px;
+        width: 70vw;
+        margin-bottom: 60px;
+      "
+    >
+      <p style="color: #5e8d9b; padding: 30px; font-size: 26px">
+        {{ post.description }}
+      </p>
+    </div>
+    <hr />
+    <div class="commentForm">
+      <form
+        [formGroup]="createCommentForm"
+        (ngSubmit)="onSubmit()"
+        style="padding: 35px; padding-right: 25%"
+      >
+        <textarea
+          placeholder="Want to add to the discussion? &#10; Post a comment"
+          class="commentBox form-control"
+          name="comment"
+          id="comment"
+          formControlName="comment"
+          cols="80"
+          rows="10"
+        ></textarea>
+        <button class="btn btn-primary commentBtn" type="submit">
+          Submit Comment
+        </button>
+      </form>
+    </div>
+  </div>
+  <hr />
+  <div class="comment-section">
+    <div
+      class="singleComment"
+      *ngFor="let comment of post.comments; let i = index"
+    >
+      <p class="username">
+        <span class="username" (click)="switchComment(i)">
+          <span id="{{ i + 'button' }}" class="collapsed username">[-] </span>
+        </span>
+        <span class="username">{{ comment.username }}</span>
+      </p>
+      <p class="comment-text" id="{{ i }}">
+        {{ comment.comment }}
+      </p>
+      <p
+        *ngIf="
+          (commentUserName == comment.username && commentUserName != null) ||
+          commentUserName == 'admin@ditti.com'
+        "
+        class="deleteButton"
+        (click)="deleteComment(i)"
+      >
+        Delete
+      </p>
+    </div>
+  </div>
+</div>

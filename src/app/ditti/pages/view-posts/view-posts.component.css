@@ -1,0 +1,69 @@
+.dittiPostContent {
+  min-height: 100vh;
+}
+
+.item {
+  margin-right: 20px;
+  font-size: x-small;
+}
+
+.date {
+  color: gray;
+}
+
+.commentBox {
+  margin-left: 5vw;
+  display: block;
+  line-height: 19px;
+  margin-bottom: 0;
+  color: #30659b !important;
+  resize: none;
+  width: 50vw;
+}
+
+.commentForm {
+  height: 300px;
+}
+
+::placeholder {
+  text-align: center;
+  font-style: italic;
+  font-size: 2em;
+  line-height: 90px;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder {
+  text-align: center;
+}
+
+.commentBtn {
+  margin-left: 41vw;
+  margin-top: 10px;
+}
+
+.username {
+  font-size: x-small;
+  margin-bottom: -3px;
+}
+.comment-section {
+  margin-left: 50px;
+  width: 60vw;
+}
+
+.deleteButton {
+  font-size: xx-small;
+  margin-top: -25px;
+  color: red;
+}
+
+.postDelete {
+  position: relative;
+  bottom: -26px;
+}
+.postImg {
+  max-width: 60vw;
+}
