@@ -16,13 +16,13 @@
   <div class="sidebar-close"(click)="sidebarShow = !sidebarShow">X</div>
   <div class="sidebar-content">
     <h2 class="dittiName">{{ currentDitti.name }}</h2>
-    <div
-      class="sidebar-divs"
+    <button
+      class="sidebar-btn"
       (click)="checkURL()"
       routerLink="{{ currentDitti.name }}/createPost"
     >
       Create Post
-    </div>
+    </button>
 
     <div class="sidebar-description">{{ currentDitti.description }}</div>
   </div>

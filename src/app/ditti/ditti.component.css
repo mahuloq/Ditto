@@ -18,7 +18,7 @@
   top: 100px;
   right: 0;
   bottom: 0;
-  background-color: #da3f2371;
+  background-color: #84c7da;
 
   transform: translateX(100%);
   transition: ease-in-out 300ms transform;
@@ -52,16 +52,16 @@
 
 }
 
-.sidebar-divs {
+.sidebar-btn {
   margin-bottom:150px;
   margin-top: 0px;
-  font-size: 22px;
- cursor: pointer;
+  font-size: 20px;
+ cursor: pointer ;
   padding: 15px;
   text-align: center;
-
-
   padding-top: 15px;
+  border-radius: 25px;
+  color: black;
 }
 .dittiName {
   padding-left: 20px;
@@ -71,4 +71,5 @@
 }
 h2{
   font-weight: 600;
+
 }
