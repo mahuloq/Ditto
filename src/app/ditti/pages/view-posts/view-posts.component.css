@@ -12,7 +12,7 @@
 }
 
 .commentBox {
-  margin-left: 40px;
+  margin-left: 5vw;
   display: block;
   line-height: 19px;
   margin-bottom: 0;
@@ -58,4 +58,12 @@
   font-size: xx-small;
   margin-top: -25px;
   color: red;
+}
+
+.postDelete {
+  position: relative;
+  bottom: -26px;
+}
+.postImg {
+  max-width: 60vw;
 }
