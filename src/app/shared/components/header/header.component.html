@@ -1,15 +1,12 @@
-<div class="header-body sticky-top"
-style="">
-  <nav
-    class="navbar navbar-expand-lg bg-body-tertiary sticky-top"
-    style="display: block; flex-shrink: 0;position: relative;"
-  >
-    <div class="container-fluid d-flex header" style="" >
-      <a class="navbar-brand" id="home" style="cursor: pointer;position: absolute;"
+<div class="header-body sticky-top">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary"
+>
+    <div class="container-fluid d-flex header" >
+      <a class="navbar-brand" id="home" style="cursor: pointer;"
         ><img
           src="https://www.airsquirrels.com/hubfs/Logos/Ditto%20Logos/03%20Small/DittoTypeWhiteRGB_TighterCrop.png"
           (click)="navigate()"
-          style="width: 125px"
+          style="width: 100px;"
           id="home"
       /></a>
 
@@ -24,30 +21,30 @@ style="">
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <ul
-      class="auth list-group nav-item mx-2"
-      style="flex-direction: row;"
-    >
-      <li
+      <ul class="auth list-group nav-item mx-1" style="flex-direction: row;">
+        <li
+          class="nav-item list-group-item"
+          style="
+            background-color: #84c7da;
 
-        class="nav-item list-group-item"
-        style="
-          background-color: #84c7da;
-
-          color: #1b3146;
-          border-radius: 5px;
-          border: 1px solid #1b3146;
-          margin-right: 5px;
-          font-weight: 800;
-         text-wrap:nowrap;
-         margin-left: 125px;
+            color: #1b3146;
+            border-radius: 5px;
+            border: 1px solid #1b3146;
+            margin-right: 5px;
+            text-wrap: nowrap;
+            margin-left: -15px;
 
           "
-
-      >
-        <a class="nav-link active" aria-current="page" (click)="makeDitti()"
-          >Make Ditti</a
-        ></li> </ul>
+        >
+          <a
+            class="nav-link active"
+            aria-current="page"
+            (click)="makeDitti()"
+            style="font-size: 12px;"
+            >Make Ditti</a
+          >
+        </li>
+      </ul>
 
       <div
         class="collapse navbar-collapse"
@@ -61,16 +58,17 @@ style="">
               aria-current="page"
               id="dittiHome"
               (click)="navigate()"
+              style="font-size: 10px;margin-left: -13px;"
               >{{ currentLocation }}</a
             >
           </li>
 
           <ul
             class="list-group py-0"
-            style="flex-direction: row; flex-shrink: 0;"
+            style="flex-direction: row;overflow: hidden;"
           >
             <li
-              class="list-group-item mx-1 text-align-center dittis"
+              class="list-group-item text-align-center dittis"
               *ngFor="let ditti of dittis"
               style="
                 border-radius: 5px;
@@ -78,8 +76,8 @@ style="">
 
                 padding: 0;
                 color: #1b3146;
-                font-size: 22px;
-
+                font-size: 14px;
+                margin-left:1px;
               "
             >
               <a class="nav-link" (click)="navigateToDitti(ditti.name)">{{
@@ -90,22 +88,24 @@ style="">
         </ul>
 
         <ul
-          class="auth list-group nav-item mx-2"
-          style="flex-direction: row; position: inherit;"
+          class="auth list-group nav-item mx-1"
+          style="flex-direction: row;flex-shrink: 0;"
         >
           <li
             *ngIf="!isAuthenticated"
             class="nav-item list-group-item"
             style="
               background-color: #84c7da;
+              padding: 10px;
 
               color: #1b3146;
               border-radius: 5px;
               border: 1px solid #1b3146;
               margin-right: 5px;
-              font-weight: 800;
-              "
-
+            font-size:14px;
+            text-wrap: nowrap;
+              ;
+            "
           >
             <a class="nav-link active" aria-current="page" (click)="signUp()"
               >Sign-Up</a
@@ -119,7 +119,7 @@ style="">
               color: #1b3146;
               border-radius: 5px;
               border: 1px solid #1b3146;
-              font-weight: 800;
+              font-size: 14px;
             "
           >
             <a class="nav-link active" aria-current="page" (click)="login()">
@@ -133,7 +133,7 @@ style="">
               background-color: #5e8d9b;
               color: #1b3146;
               border: none;
-              font-size: 22px;
+              font-size: 14px;
               margin-right: 0;
             "
           >
@@ -148,7 +148,7 @@ style="">
               color: #1b3146;
               border-radius: 5px;
               border: 1px solid #1b3146;
-
+              font-size: 18px;
             "
           >
             <a class="nav-link" aria-current="page" (click)="onLogout()"
