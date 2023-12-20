@@ -11,7 +11,7 @@
 .dittis{
   display: none;
 }
-.dittis:nth-child(-n+11) {
+.dittis:nth-child(-n+13) {
   display:block ;
 
 }

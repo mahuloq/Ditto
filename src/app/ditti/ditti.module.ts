@@ -11,5 +11,6 @@ import { DittiHomeComponent } from './pages/ditti-home/ditti-home.component';
 @NgModule({
   declarations: [DittiComponent, CreatePostComponent, ViewPostsComponent, DittiHomeComponent],
   imports: [CommonModule, DittiRoutingModule, SharedModule],
+
 })
-export class DittiModule {}
+export class DittiModule { }
