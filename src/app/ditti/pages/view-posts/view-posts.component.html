@@ -20,7 +20,7 @@
       <p
         *ngIf="
           (commentUserName == post.username && commentUserName != null) ||
-          commentUserName == 'admin@ditti.com'
+          commentUserName == 'admin@ditto.com'
         "
         class="deleteButton postDelete"
         (click)="deletePost()"
@@ -38,7 +38,7 @@
         margin-bottom: 60px;
       "
     >
-      <p style="color: #5e8d9b; padding: 10px; font-size: 26px;">
+      <p style="color: #5e8d9b; padding: 10px; font-size: 26px">
         {{ post.description }}
       </p>
     </div>
@@ -82,7 +82,7 @@
       <p
         *ngIf="
           (commentUserName == comment.username && commentUserName != null) ||
-          commentUserName == 'admin@ditti.com'
+          commentUserName == 'admin@ditto.com'
         "
         class="deleteButton"
         (click)="deleteComment(i)"

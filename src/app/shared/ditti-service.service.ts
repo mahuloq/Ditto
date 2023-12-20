@@ -104,9 +104,18 @@ export class DittiService {
   }
 
   deletePost() {
-    let arr =
-      this.allDittis[this.currentDittiIndex].posts[this.currentPostIndex];
+    console.log(this.currentDittiIndex);
+    console.log(this.currentPostIndex);
+    console.log(this.allDittis);
+    console.log(this.allDittis[this.currentDittiIndex]);
+    console.log(this.allDittis[this.currentDittiIndex].posts);
+    console.log(
+      this.allDittis[this.currentDittiIndex].posts[this.currentPostIndex]
+    );
+    let arr = this.allDittis[this.currentDittiIndex].posts;
     console.log(arr);
+
+    arr.splice(this.currentPostIndex, 1);
   }
 
   saveInfo(data, destination) {
