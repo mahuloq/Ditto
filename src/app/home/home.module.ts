@@ -9,5 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [HomeComponent],
   imports: [CommonModule, HomeRoutingModule, SharedModule, HttpClientModule],
+  imports: [CommonModule, HomeRoutingModule, HttpClientModule, SharedModule],
 })
 export class HomeModule {}

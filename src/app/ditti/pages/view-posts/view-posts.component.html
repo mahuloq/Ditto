@@ -13,14 +13,14 @@
       {{ post.title }}
     </p>
     <div style="padding-left: 80px; display: flex">
-      <p class="item date">Datetime will go here</p>
+      <p class="item date">{{ post.datetime }}</p>
       <p class="item username">
         {{ post.username ? post.username : "Username Here" }}
       </p>
       <p
         *ngIf="
           (commentUserName == post.username && commentUserName != null) ||
-          commentUserName == 'admin@ditti.com'
+          commentUserName == 'admin@ditto.com'
         "
         class="deleteButton postDelete"
         (click)="deletePost()"
@@ -31,13 +31,14 @@
     <div
       style="
         margin-left: 80px;
+
         border: 1px solid #5e8d9b;
         border-radius: 3px;
         width: 70vw;
         margin-bottom: 60px;
       "
     >
-      <p style="color: #5e8d9b; padding: 30px; font-size: 26px">
+      <p style="color: #5e8d9b; padding: 10px; font-size: 26px">
         {{ post.description }}
       </p>
     </div>
@@ -81,7 +82,7 @@
       <p
         *ngIf="
           (commentUserName == comment.username && commentUserName != null) ||
-          commentUserName == 'admin@ditti.com'
+          commentUserName == 'admin@ditto.com'
         "
         class="deleteButton"
         (click)="deleteComment(i)"

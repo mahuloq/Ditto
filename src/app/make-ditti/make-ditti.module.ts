@@ -6,11 +6,6 @@ import { MakeDittiComponent } from './make-ditti.component';
 
 @NgModule({
   declarations: [MakeDittiComponent],
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    CommonModule,
-    MakeDittiRoutingModule,
-  ],
+  imports: [CommonModule, MakeDittiRoutingModule, SharedModule],
 })
 export class MakeDittiModule {}

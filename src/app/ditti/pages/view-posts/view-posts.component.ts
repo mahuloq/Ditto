@@ -111,6 +111,7 @@ export class ViewPostsComponent implements OnInit {
     if (confirm('Are you sure you want to delete this Post?')) {
       this.dittiService.deletePost();
       this.dataService.saveDitti();
+      this.router.navigate(['/ditti', this.dittiService.currentDitti.name]);
     } else {
       return;
     }
