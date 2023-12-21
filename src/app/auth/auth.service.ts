@@ -46,7 +46,7 @@ export class AuthService {
 getEmail() {
   const userData = JSON.parse(localStorage.getItem('userData'));
   return userData ? userData.email : null;
-  setTimeout(this.getEmail,5000)
+  setTimeout(this.getEmail,3000);
 }
 
 

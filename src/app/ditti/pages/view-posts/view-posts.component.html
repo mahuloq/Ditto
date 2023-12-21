@@ -1,5 +1,5 @@
 <div>
-  <div class="dittiPostContent" style="flex-direction: row;">
+  <div class="dittiPostContent">
     <p
       style="
         padding-left: 80px;
@@ -9,8 +9,8 @@
         margin-bottom: -3px;
       "
     >
-
-      <img class="postImg"
+      <img
+        class="postImg"
         src="{{
           post.image !== undefined
             ? post.image
@@ -18,17 +18,14 @@
         }}"
         alt=""
       />
-
       {{ post.title }}
     </p>
-
     <div style="padding-left: 80px; display: flex">
       <p class="item date">{{ post.datetime }}</p>
       <p class="item username">
         {{ post.username ? post.username : "Username Here" }}
       </p>
       <p
-        style="cursor: pointer"
         *ngIf="
           (commentUserName == post.username && commentUserName != null) ||
           commentUserName == 'admin@ditto.com'
@@ -97,9 +94,7 @@
       <p class="comment-text" id="{{ i }}">
         {{ comment.comment }}
       </p>
-
       <p
-        style="cursor: pointer"
         *ngIf="
           (commentUserName == comment.username && commentUserName != null) ||
           commentUserName == 'admin@ditto.com'
