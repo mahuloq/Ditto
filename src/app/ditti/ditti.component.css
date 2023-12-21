@@ -104,14 +104,14 @@ body {
 }
 .dittiName {
   padding-left: 20px;
-  margin-top: 5px;
+  margin-top: 10px;
   padding-top: 5px;
   padding-bottom: 15px;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-h2{
-  font-size: 60px;
+h4{
+  font-size: 25px;
   font-weight: 600;
   font-family: 'Roboto', sans-serif;
   color: #EAEAE8;
@@ -128,5 +128,5 @@ h2{
                1px 25px 50px rgba(16, 16, 16, 0.2);
 }
 .sidebar-description{
-  margin-top: 10px;
+  margin-top: 15px;
 }
