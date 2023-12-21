@@ -15,7 +15,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     ReactiveFormsModule,
     FormsModule,
     LoadingSpinnerComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
 })
 export class SharedModule {}
