@@ -1,4 +1,11 @@
-.list-group-item:hover {
+
+.header-body{
+  /* background-image: linear-gradient(to right, #84c7da, #5E8D9B); */
+  background-image: linear-gradient(to right, #00b4db, #0083b0);
+}
+
+.list-group-item:hover{
+
   background-color: rgb(183, 199, 201);
 }
 

@@ -24,7 +24,8 @@
         <li
           class="nav-item list-group-item"
           style="
-            background-color: #84c7da;
+            /* background-color: #84c7da; */
+            background-image: linear-gradient(to right, #84c7da, #5e8d9b);
 
             color: #1b3146;
             border-radius: 5px;
@@ -51,16 +52,16 @@
       >
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li *ngIf="!isHome" class="nav-item">
-            <div class="test">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                id="dittiHome"
-                (click)="navigate()"
-                style="font-size: 10px; margin-left: -13px"
-                >{{ currentLocation }}</a
-              >
-            </div>
+
+            <a
+              class="nav-link active"
+              aria-current="page"
+              id="dittiHome"
+              (click)="navigate()"
+              style="font-size: 10px; margin-left: -13px"
+              >{{ currentLocation }}</a
+            >
+
           </li>
 
           <ul
@@ -95,7 +96,8 @@
             *ngIf="!isAuthenticated"
             class="nav-item list-group-item"
             style="
-              background-color: #84c7da;
+              /* background-color: #84c7da; */
+              background-image: linear-gradient(to right, #84c7da, #5e8d9b);
               padding: 10px;
 
               color: #1b3146;
@@ -114,7 +116,8 @@
             *ngIf="!isAuthenticated"
             class="nav-item list-group-item"
             style="
-              background-color: #84c7da;
+              /* background-color: #84c7da; */
+              background-image: linear-gradient(to right, #84c7da, #5e8d9b);
               color: #1b3146;
               border-radius: 5px;
               border: 1px solid #1b3146;
@@ -130,6 +133,7 @@
             class="list-group-item"
             style="
               background-color: #5e8d9b;
+
               color: #1b3146;
               border: none;
               font-size: 14px;
@@ -143,7 +147,8 @@
             *ngIf="isAuthenticated"
             class="nav-item list-group-item ml-auto auth"
             style="
-              background-color: #84c7da;
+              /* background-color: #84c7da; */
+              background-image: linear-gradient(to right, #84c7da, #5e8d9b);
               color: #1b3146;
               border-radius: 5px;
               border: 1px solid #1b3146;
