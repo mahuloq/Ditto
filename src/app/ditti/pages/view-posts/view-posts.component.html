@@ -18,6 +18,7 @@
         {{ post.username ? post.username : "Username Here" }}
       </p>
       <p
+      style="cursor: pointer;"
         *ngIf="
           (commentUserName == post.username && commentUserName != null) ||
           commentUserName == 'admin@ditto.com'
@@ -79,16 +80,21 @@
       <p class="comment-text" id="{{ i }}">
         {{ comment.comment }}
       </p>
+
       <p
+      style="cursor: pointer;"
         *ngIf="
           (commentUserName == comment.username && commentUserName != null) ||
           commentUserName == 'admin@ditto.com'
         "
         class="deleteButton"
         (click)="deleteComment(i)"
+
+
       >
         Delete
       </p>
+
     </div>
   </div>
 </div>
