@@ -1,5 +1,5 @@
 <div>
-  <div class="dittiPostContent">
+  <div class="dittiPostContent" style="flex-direction: row;">
     <p
       style="
         padding-left: 80px;
@@ -10,15 +10,18 @@
       "
     >
       <img class="postImg" src="{{ post.image }}" alt="" />
+    </p>
+    <p style="padding-left: 80px">
       {{ post.title }}
     </p>
+
     <div style="padding-left: 80px; display: flex">
       <p class="item date">{{ post.datetime }}</p>
       <p class="item username">
         {{ post.username ? post.username : "Username Here" }}
       </p>
       <p
-      style="cursor: pointer;"
+        style="cursor: pointer"
         *ngIf="
           (commentUserName == post.username && commentUserName != null) ||
           commentUserName == 'admin@ditto.com'
@@ -82,19 +85,16 @@
       </p>
 
       <p
-      style="cursor: pointer;"
+        style="cursor: pointer"
         *ngIf="
           (commentUserName == comment.username && commentUserName != null) ||
           commentUserName == 'admin@ditto.com'
         "
         class="deleteButton"
         (click)="deleteComment(i)"
-
-
       >
         Delete
       </p>
-
     </div>
   </div>
 </div>
