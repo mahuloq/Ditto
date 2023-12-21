@@ -92,8 +92,8 @@ body {
   background-color: rgb(183, 199, 201);
 }
 .sidebar-btn {
-  margin-bottom:110px;
-  margin-top: 400px;
+  margin-bottom:210px;
+  margin-top: 300px;
   font-size: 20px;
  cursor: pointer ;
   padding: 15px;
@@ -111,7 +111,7 @@ body {
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 h2{
-  font-size: 70px;
+  font-size: 60px;
   font-weight: 600;
   font-family: 'Roboto', sans-serif;
   color: #EAEAE8;
