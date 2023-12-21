@@ -9,7 +9,14 @@
         margin-bottom: -3px;
       "
     >
-      <img class="postImg" src="{{ post.image }}" alt="" />
+      <img
+        src="{{
+          post.image !== undefined
+            ? post.image
+            : 'https://i.imgur.com/Qni03jZ.jpg'
+        }}"
+        alt=""
+      />
       {{ post.title }}
     </p>
     <div style="padding-left: 80px; display: flex">
@@ -38,7 +45,14 @@
         margin-bottom: 60px;
       "
     >
-      <p style="color: #5e8d9b; padding: 10px; font-size: 26px">
+      <p
+        style="
+          color: #5e8d9b;
+          padding: 10px;
+          font-size: 26px;
+          white-space: pre-line;
+        "
+      >
         {{ post.description }}
       </p>
     </div>

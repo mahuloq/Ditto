@@ -1,20 +1,23 @@
-.list-group-item:hover{
+.list-group-item:hover {
   background-color: rgb(183, 199, 201);
 }
 
-.header-body{
+.header-body {
   width: 99vw;
   /* overflow: hidden; */
-
 }
 
-.dittis{
+.dittis {
   display: none;
 }
-.dittis:nth-child(-n+13) {
-  display:block ;
-
+.dittis:nth-child(-n + 13) {
+  display: block;
 }
-.container-fluid{
-  width: 100%;
+.container-fluid {
+  width: 98vw;
+}
+
+.test {
+  width: 62px;
+  text-align: center;
 }
