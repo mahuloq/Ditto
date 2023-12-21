@@ -18,8 +18,8 @@
   top: 100px;
   right: 0;
   bottom: 0;
-  background-color: #84c7da;
-
+  /* background-color: #84c7da; */
+  background-image: linear-gradient(to right, #84c7da, #5E8D9B);
   transform: translateX(100%);
   transition: ease-in-out 300ms transform;
   width: 350px;
@@ -51,10 +51,12 @@
   padding: 16px;
 
 }
-
+.sidebar-btn:hover{
+  background-color: rgb(183, 199, 201);
+}
 .sidebar-btn {
-  margin-bottom:150px;
-  margin-top: 0px;
+  margin-bottom:110px;
+  margin-top: 275px;
   font-size: 20px;
  cursor: pointer ;
   padding: 15px;
