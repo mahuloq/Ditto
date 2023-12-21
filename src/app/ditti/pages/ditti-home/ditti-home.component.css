@@ -5,3 +5,8 @@ img {
 /* ul li{
   font-size: 32px;
 } */
+
+.posts {
+  display: flex;
+  flex-direction: column-reverse;
+}
