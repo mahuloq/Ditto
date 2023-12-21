@@ -46,6 +46,22 @@ export class CreatePostComponent implements OnInit {
     console.log(timestamp);
     let newPost: Post = { ...this.createPostForm.value };
     newPost.username = this.authService.getEmail();
+
+    var testDate = new Date();
+
+    var year = testDate.getFullYear();
+    var month: string | number = testDate.getMonth() + 1;
+    var day: string | number = testDate.getDate();
+    var hour: string | number = testDate.getHours();
+
+    var monthO = month.toString().length > 1 ? month : '0' + month;
+
+    var dayO = day.toString().length > 1 ? day : '0' + day;
+
+    var newDate = `${year}-${monthO}-${dayO}`;
+    var newH = `${hour}`;
+    newPost.datetime = newDate;
+    newPost.datetimeHM = newH;
     const postIndex = this.dittiService.addPost(newPost, this.index);
     this.dataService.saveDitti();
     const url = `/ditti/${

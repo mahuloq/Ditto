@@ -1,6 +1,6 @@
 <div>
   <ul
-    class="list-group"
+    class="list-group posts"
     style="
       align-items: left;
       justify-content: space-evenly;
@@ -15,7 +15,15 @@
       style="color: #5e8d9b"
     >
       <p style="padding-left: 10px">
-        <img src="{{ posts.image }}" alt="" /> {{ posts.title }}
+        <img
+          src="{{
+            posts.image !== undefined
+              ? posts.image
+              : 'https://i.imgur.com/Qni03jZ.jpg'
+          }}"
+          alt=""
+        />
+        {{ posts.title }}
       </p>
     </li>
   </ul>
