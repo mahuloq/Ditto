@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
   max-height: 75%;
-
 }
 
 .sidebar-opener {
@@ -19,7 +18,7 @@
   right: 0;
   bottom: 0;
   /* background-color: #84c7da; */
-  background-image: linear-gradient(to right, #84c7da, #5E8D9B);
+  background-image: linear-gradient(to right, #84c7da, #5e8d9b);
   transform: translateX(100%);
   transition: ease-in-out 300ms transform;
   width: 350px;
@@ -49,7 +48,6 @@
   color: #1b3146;
   font-size: 22px;
   padding: 16px;
-
 }
 .sidebar-btn {
   animation: wiggle 2s linear infinite;
@@ -57,7 +55,8 @@
 
 /* Keyframes */
 @keyframes wiggle {
-  0%, 7% {
+  0%,
+  7% {
     transform: rotateZ(0);
   }
   15% {
@@ -75,7 +74,8 @@
   35% {
     transform: rotateZ(-4deg);
   }
-  40%, 100% {
+  40%,
+  100% {
     transform: rotateZ(0);
   }
 }
@@ -88,14 +88,14 @@ body {
   position: absolute;
   left: calc(50% - 3em);
 }
-.sidebar-btn:hover{
+.sidebar-btn:hover {
   background-color: rgb(183, 199, 201);
 }
 .sidebar-btn {
-  margin-bottom:210px;
+  margin-bottom: 210px;
   margin-top: 300px;
   font-size: 20px;
- cursor: pointer ;
+  cursor: pointer;
   padding: 15px;
   text-align: center;
   padding-top: 15px;
@@ -107,26 +107,27 @@ body {
   margin-top: 10px;
   padding-top: 5px;
   padding-bottom: 15px;
+  font-size: xx-large;
 }
+
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 h4{
-  font-size: 25px;
+  font-size: 30px;
+
+
   font-weight: 600;
-  font-family: 'Roboto', sans-serif;
-  color: #EAEAE8;
+  font-family: "Roboto", sans-serif;
+  color: #eaeae8;
   text-transform: uppercase;
-  text-shadow: 1px 1px 0px #1B3146,
-               1px 2px 0px #1B3146,
-               1px 3px 0px #1B3146,
-               1px 4px 0px #1B3146,
-               1px 5px 0px #1B3146,
-               1px 6px 0px #1B3146,
-               1px 10px 5px rgba(16, 16, 16, 0.5),
-               1px 15px 10px rgba(16, 16, 16, 0.4),
-               1px 20px 30px rgba(16, 16, 16, 0.3),
-               1px 25px 50px rgba(16, 16, 16, 0.2);
+  text-shadow: 1px 1px 0px #1b3146, 1px 2px 0px #1b3146, 1px 3px 0px #1b3146,
+    1px 4px 0px #1b3146, 1px 5px 0px #1b3146, 1px 6px 0px #1b3146,
+    1px 10px 5px rgba(16, 16, 16, 0.5), 1px 15px 10px rgba(16, 16, 16, 0.4),
+    1px 20px 30px rgba(16, 16, 16, 0.3), 1px 25px 50px rgba(16, 16, 16, 0.2);
 }
-.sidebar-description{
-  margin-top: 15px;
+
+
+.sidebar-description {
+  margin-top: 10px;
+
 }

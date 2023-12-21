@@ -1,17 +1,23 @@
-
-.header-body{
+.header-body {
   /* background-image: linear-gradient(to right, #84c7da, #5E8D9B); */
   background-image: linear-gradient(to right, #00b4db, #0083b0);
 }
 
-.list-group-item:hover{
-
+.list-group-item:hover {
   background-color: rgb(183, 199, 201);
 }
 
 .header-body {
   width: 99vw;
   /* overflow: hidden; */
+}
+
+.goDitti {
+  width: 70px;
+  left: 11vw;
+  text-align: center;
+  top: 1vh;
+  position: absolute;
 }
 
 .dittis {
