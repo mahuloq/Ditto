@@ -1,20 +1,30 @@
+
+.header-body{
+  /* background-image: linear-gradient(to right, #84c7da, #5E8D9B); */
+  background-image: linear-gradient(to right, #00b4db, #0083b0);
+}
+
 .list-group-item:hover{
+
   background-color: rgb(183, 199, 201);
 }
 
-.header-body{
+.header-body {
   width: 99vw;
   /* overflow: hidden; */
-
 }
 
-.dittis{
+.dittis {
   display: none;
 }
-.dittis:nth-child(-n+13) {
-  display:block ;
-
+.dittis:nth-child(-n + 13) {
+  display: block;
 }
-.container-fluid{
-  width: 100%;
+.container-fluid {
+  width: 98vw;
+}
+
+.test {
+  width: 62px;
+  text-align: center;
 }

@@ -18,8 +18,8 @@
   top: 100px;
   right: 0;
   bottom: 0;
-  background-color: #84c7da;
-
+  /* background-color: #84c7da; */
+  background-image: linear-gradient(to right, #84c7da, #5E8D9B);
   transform: translateX(100%);
   transition: ease-in-out 300ms transform;
   width: 350px;
@@ -51,10 +51,49 @@
   padding: 16px;
 
 }
+.sidebar-btn {
+  animation: wiggle 2s linear infinite;
+}
+
+/* Keyframes */
+@keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%, 100% {
+    transform: rotateZ(0);
+  }
+}
+
+body {
+  background: #000;
+}
 
 .sidebar-btn {
-  margin-bottom:150px;
-  margin-top: 0px;
+  position: absolute;
+  left: calc(50% - 3em);
+}
+.sidebar-btn:hover{
+  background-color: rgb(183, 199, 201);
+}
+.sidebar-btn {
+  margin-bottom:210px;
+  margin-top: 300px;
   font-size: 20px;
  cursor: pointer ;
   padding: 15px;
@@ -69,7 +108,25 @@
   padding-top: 5px;
   padding-bottom: 15px;
 }
-h2{
-  font-weight: 600;
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+h2{
+  font-size: 60px;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+  color: #EAEAE8;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0px #1B3146,
+               1px 2px 0px #1B3146,
+               1px 3px 0px #1B3146,
+               1px 4px 0px #1B3146,
+               1px 5px 0px #1B3146,
+               1px 6px 0px #1B3146,
+               1px 10px 5px rgba(16, 16, 16, 0.5),
+               1px 15px 10px rgba(16, 16, 16, 0.4),
+               1px 20px 30px rgba(16, 16, 16, 0.3),
+               1px 25px 50px rgba(16, 16, 16, 0.2);
+}
+.sidebar-description{
+  margin-top: 10px;
 }
